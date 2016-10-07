@@ -1,0 +1,5 @@
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Contracts\bin\Debug\JicaTweet.Contracts.dll.config
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Contracts\bin\Debug\JicaTweet.Contracts.dll
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Contracts\bin\Debug\JicaTweet.Contracts.pdb
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Contracts\obj\Debug\JicaTweet.Contracts.dll
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Contracts\obj\Debug\JicaTweet.Contracts.pdb

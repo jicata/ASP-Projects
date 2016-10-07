@@ -1,0 +1,14 @@
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\bin\Debug\JicaTweet.Models.dll.config
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\bin\Debug\JicaTweet.Models.dll
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\bin\Debug\JicaTweet.Models.pdb
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\bin\Debug\EntityFramework.dll
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\bin\Debug\EntityFramework.xml
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\obj\Debug\JicaTweet.Data.Models.csprojResolveAssemblyReference.cache
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\obj\Debug\JicaTweet.Models.dll
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\JicaTweet\JicaTweet.Models\obj\Debug\JicaTweet.Models.pdb

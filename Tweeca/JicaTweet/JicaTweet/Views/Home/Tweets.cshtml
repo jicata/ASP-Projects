@@ -1,0 +1,14 @@
+﻿@using JicaTweet.Models
+@model IEnumerable<JicaTweet.Models.Tweet>
+@{
+    ViewBag.Title = "Tweets";
+}
+
+<h2>Tweets</h2>
+
+@foreach (Tweet tweet in Model)
+{
+    <h1>@tweet.Author</h1>
+    <p>@tweet.Content</p>
+}
+

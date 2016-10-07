@@ -1,0 +1,6 @@
+C:\Users\Maika\Documents\Programming\ASP\TestJs\TestJs\bin\Debug\TestJs.exe.config
+C:\Users\Maika\Documents\Programming\ASP\TestJs\TestJs\bin\Debug\TestJs.exe
+C:\Users\Maika\Documents\Programming\ASP\TestJs\TestJs\bin\Debug\TestJs.pdb
+C:\Users\Maika\Documents\Programming\ASP\TestJs\TestJs\obj\Debug\TestJs.csprojResolveAssemblyReference.cache
+C:\Users\Maika\Documents\Programming\ASP\TestJs\TestJs\obj\Debug\TestJs.exe
+C:\Users\Maika\Documents\Programming\ASP\TestJs\TestJs\obj\Debug\TestJs.pdb

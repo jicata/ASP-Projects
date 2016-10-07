@@ -1,0 +1,5 @@
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\TestingLib\TestingLib\bin\Debug\TestingLib.dll
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\TestingLib\TestingLib\bin\Debug\TestingLib.pdb
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\TestingLib\TestingLib\obj\Debug\TestingLib.csprojResolveAssemblyReference.cache
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\TestingLib\TestingLib\obj\Debug\TestingLib.dll
+C:\Users\Maika\Documents\Programming\ASP\Tweeca\TestingLib\TestingLib\obj\Debug\TestingLib.pdb
