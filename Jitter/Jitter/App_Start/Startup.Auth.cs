@@ -9,6 +9,7 @@ using Owin;
 namespace Jitter
 {
     using Data;
+    using Data.IdentityModels;
     using Models;
 
     public partial class Startup

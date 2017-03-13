@@ -1,12 +1,13 @@
 ﻿namespace Jitter.Data
 {
     using Contracts;
+    using IdentityModels;
     using Models;
     using Repositories;
 
     public  class JitterData : IJitterData
     {
-        private IJitterContext context;
+        private readonly IJitterContext context;
 
         public JitterData(IJitterContext context)
         {

@@ -12,21 +12,26 @@ using Microsoft.Owin.Security;
 
 namespace Jitter.Controllers
 {
+    using Data;
+    using Data.Contracts;
+    using Data.IdentityModels;
     using Models;
     using ViewModels.AccountViewModels;
     using ViewModels.LoginViewModels;
 
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private UserManager _userManager;
 
         public AccountController()
+            :base(new JitterData(new JitterContext()))
         {
         }
 
-        public AccountController(UserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(IJitterData data,UserManager userManager, ApplicationSignInManager signInManager )
+            :base(data)
         {
             UserManager = userManager;
             SignInManager = signInManager;

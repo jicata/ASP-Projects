@@ -15,6 +15,7 @@ using Jitter.Models;
 namespace Jitter
 {
     using Data;
+    using Data.IdentityModels;
 
     public class EmailService : IIdentityMessageService
     {
@@ -53,14 +54,14 @@ namespace Jitter
             };
 
             // Configure validation logic for passwords
-            manager.PasswordValidator = new PasswordValidator
-            {
-                RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
-            };
+            //manager.PasswordValidator = new PasswordValidator
+            //{
+            //    RequiredLength = 6,
+            //    RequireNonLetterOrDigit = true,
+            //    RequireDigit = true,
+            //    RequireLowercase = true,
+            //    RequireUppercase = true,
+            //};
 
             // Configure user lockout defaults
             manager.UserLockoutEnabledByDefault = true;

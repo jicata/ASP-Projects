@@ -5,9 +5,6 @@
 
     public interface IJitterContext
     {
-        IDbSet<User> Users { get; }
-        IDbSet<Login> Logins { get; }           
-        IDbSet<Game> Games { get; }
         DbContext DbContext { get; }
 
         int SaveChanges();
