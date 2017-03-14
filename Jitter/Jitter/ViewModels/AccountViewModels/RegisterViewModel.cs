@@ -1,9 +1,16 @@
 namespace Jitter.ViewModels.AccountViewModels
 {
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using Microsoft.AspNet.Identity;
 
     public class RegisterViewModel
     {
+        [Required]
+        [DisplayName("Username")]
+        [StringLength(20,ErrorMessage = "The {0} must be at least {2} characters long", MinimumLength=6)]
+        public string Username { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

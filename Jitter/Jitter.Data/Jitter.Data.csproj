@@ -60,7 +60,6 @@
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IJitterContext.cs" />
     <Compile Include="Contracts\IJitterData.cs" />
-    <Compile Include="Contracts\IService.cs" />
     <Compile Include="JitterContext.cs" />
     <Compile Include="JitterData.cs" />
     <Compile Include="Migrations\201703131335077_fluent_api__double_many_to_many.cs" />
@@ -70,7 +69,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Repository.cs" />
-    <Compile Include="Service\Service.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

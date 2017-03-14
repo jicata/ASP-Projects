@@ -1,4 +1,4 @@
-﻿namespace Jitter.Data.IdentityModels
+﻿namespace Jitter.Models
 {
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -7,10 +7,10 @@
     using System.Threading.Tasks;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using Models;
 
     public class User : IdentityUser
     {
+
         public User()
         {
             this.FollowedBy = new HashSet<User>();

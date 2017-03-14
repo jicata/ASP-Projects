@@ -2,7 +2,6 @@
 {
     using System.Data.Entity;
     using Contracts;
-    using IdentityModels;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
 

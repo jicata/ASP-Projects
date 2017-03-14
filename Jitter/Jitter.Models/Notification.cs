@@ -2,7 +2,6 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations.Schema;
-    using Data.IdentityModels;
 
     public class Notification
     {

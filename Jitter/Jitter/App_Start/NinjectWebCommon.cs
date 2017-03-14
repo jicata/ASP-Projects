@@ -10,7 +10,7 @@ namespace Jitter.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-
+    using Data;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -61,8 +61,8 @@ namespace Jitter.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IJitterData>().To<IJitterData>();
-            kernel.Bind<IJitterContext>().To<IJitterContext>();
+            kernel.Bind<IJitterData>().To<JitterData>().InRequestScope();
+            kernel.Bind<IJitterContext>().To<JitterContext>().InSingletonScope();
         }        
     }
 }

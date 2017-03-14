@@ -14,7 +14,6 @@ namespace Jitter.Controllers
 {
     using Data;
     using Data.Contracts;
-    using Data.IdentityModels;
     using Models;
     using ViewModels.AccountViewModels;
     using ViewModels.LoginViewModels;
@@ -160,7 +159,7 @@ namespace Jitter.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.Username, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -15,7 +15,6 @@ using Jitter.Models;
 namespace Jitter
 {
     using Data;
-    using Data.IdentityModels;
 
     public class EmailService : IIdentityMessageService
     {

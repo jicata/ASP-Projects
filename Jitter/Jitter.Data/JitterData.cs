@@ -1,7 +1,6 @@
 ﻿namespace Jitter.Data
 {
     using Contracts;
-    using IdentityModels;
     using Models;
     using Repositories;
 

@@ -6,7 +6,6 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity;
-    using Data.IdentityModels;
 
     public  class Jeet
     {
@@ -21,7 +20,6 @@
         [Column("AuthorId")]
         public string UserId { get; set; }
 
-        [DisplayName("Jeet")]
         [StringLength(160)]
         [MinLength(1)]
         public string Content { get; set; }
@@ -40,6 +38,7 @@
         public virtual User Author { get; set; }
         
 
+        [ScaffoldColumn(false)]
         public int Reported { get; set; }
         
     }
