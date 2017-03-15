@@ -2,6 +2,7 @@
 
 namespace Jitter.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
@@ -61,6 +62,12 @@ namespace Jitter.Controllers
         {
             var bestJeet = Mapper.Map<JeetViewModel>(this.data.Jeets.GetAll().FirstOrDefault());
             return this.PartialView(bestJeet);
+        }
+
+        [Route("Error")]
+        public ActionResult Error(int id)
+        {
+            return this.View();
         }
     }
 }
