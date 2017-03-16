@@ -1,11 +1,16 @@
-﻿body {
-    /*padding-top: 50px;*/
-    /*padding-bottom: 20px;*/
-    background: url(Images/real-cool-background.jpg)no-repeat center center fixed;
+﻿html *
+{
+    color: #ffffff !important;
+    /*font-family: Geneva, Tahoma, Verdana, sans-serif;*/
+}
+
+body {
+    background: url(Images/background3.png)no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -32,4 +37,9 @@ textarea {
 
 .footer > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
     margin-left: -15px;
+    font-size: 12px;
+}
+
+#mainBody {
+    background: rgba(179, 134, 0, 0.35) !important;
 }

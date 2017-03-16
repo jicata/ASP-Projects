@@ -2,11 +2,18 @@
 {
     using System.Linq;
     using System.Web.Mvc;
+    using Base;
     using Data;
+    using Data.Contracts;
 
-    public class HomeController : Controller
-    {
-        ShishaKingdomData data = new ShishaKingdomData(new ShishaKingdomContext());
+    public class HomeController : BaseController
+    {       
+
+        public HomeController(IShishaKingdomData data) 
+            : base(data)
+        {
+        }
+
         public ActionResult Index()
         {
             return this.View();
@@ -14,7 +21,7 @@
 
         public ActionResult About()
         {
-            this.ViewBag.Message = "Your application description page.";
+            this.ViewBag.Message = "За нас.";
 
             return this.View();
         }

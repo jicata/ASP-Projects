@@ -92,6 +92,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ShishaKingdom.Data\ShishaKingdom.Data.csproj">
+      <Project>{5E659F98-241D-43B3-A16A-7186F97C52C0}</Project>
+      <Name>ShishaKingdom.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ShishaKingdom.Web\ShishaKingdom.Web.csproj">
       <Project>{7CB0C81B-F604-4652-9777-67493660CEF9}</Project>
       <Name>ShishaKingdom.Web</Name>
