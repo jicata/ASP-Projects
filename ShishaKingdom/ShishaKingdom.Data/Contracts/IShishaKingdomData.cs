@@ -7,6 +7,7 @@
         IRepository<User> Users { get; }
         IRepository<Product> Products { get; }
         IRepository<Category> Categories { get; }
+        IRepository<WishList> WishLists { get; }
         IShishaKingdomContext Context { get; }
 
         int SaveChanges();

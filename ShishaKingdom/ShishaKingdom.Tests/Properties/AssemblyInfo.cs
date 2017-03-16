@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ShishaKindgom.Tests")]
+[assembly: AssemblyTitle("ShishaKingdom.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("348fb38d-08b7-4779-8e26-044613f54f98")]
+[assembly: Guid("ae231ee5-b5b4-4b4d-8a82-4041ec0bdc8a")]
 
 // Version information for an assembly consists of the following four values:
 //

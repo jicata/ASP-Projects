@@ -1,8 +1,9 @@
-﻿namespace ShishaKindgom.Tests.Controllers
+﻿using System.Web.Mvc;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace ShishaKingdom.Tests.Controllers
 {
-    using System.Web.Mvc;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using ShishaKingdom.Web.Controllers;
+    using Web.Controllers;
 
     [TestClass]
     public class HomeControllerTest

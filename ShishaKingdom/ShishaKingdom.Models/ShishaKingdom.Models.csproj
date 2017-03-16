@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C1F2DBAB-51BA-4BB0-A772-97868DB4E9DD}</ProjectGuid>
+    <ProjectGuid>{A6471258-A590-4AAF-AA2E-9621F44ED26D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ShishaKingdom.Models</RootNamespace>
@@ -58,10 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs" />
-    <Compile Include="Enum\Availability.cs" />
+    <Compile Include="Enums\Availability.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WishList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

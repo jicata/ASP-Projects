@@ -4,28 +4,23 @@
     using System.Threading.Tasks;
     using System.Web;
     using System.Web.Mvc;
-    using Data;
-    using Data.Contracts;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
     using Models;
     using ViewModels.AccountViewModels;
-    using ViewModels.LoginViewModels;
 
     [Authorize]
-    public class AccountController : BaseController
+    public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private UserManager _userManager;
 
         public AccountController()
-            :base(new ShishaKingdomData(new ShishaKingdomContext()))
         {
         }
 
-        public AccountController(IShishaKingdomData data,UserManager userManager, ApplicationSignInManager signInManager )
-            :base(data)
+        public AccountController(UserManager userManager, ApplicationSignInManager signInManager )
         {
             this.UserManager = userManager;
             this.SignInManager = signInManager;
@@ -73,7 +68,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View(model);
+                return View(model);
             }
 
             // This doesn't count login failures towards account lockout
@@ -90,7 +85,7 @@
                 case SignInStatus.Failure:
                 default:
                     this.ModelState.AddModelError("", "Invalid login attempt.");
-                    return this.View(model);
+                    return View(model);
             }
         }
 
@@ -104,7 +99,7 @@
             {
                 return this.View("Error");
             }
-            return this.View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
+            return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
         //
@@ -116,7 +111,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View(model);
+                return View(model);
             }
 
             // The following code protects for brute force attacks against the two factor codes. 
@@ -133,7 +128,7 @@
                 case SignInStatus.Failure:
                 default:
                     this.ModelState.AddModelError("", "Invalid code.");
-                    return this.View(model);
+                    return View(model);
             }
         }
 
@@ -172,7 +167,7 @@
             }
 
             // If we got this far, something failed, redisplay form
-            return this.View(model);
+            return View(model);
         }
 
         //
@@ -221,7 +216,7 @@
             }
 
             // If we got this far, something failed, redisplay form
-            return this.View(model);
+            return View(model);
         }
 
         //
@@ -249,7 +244,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View(model);
+                return View(model);
             }
             var user = await this.UserManager.FindByNameAsync(model.Email);
             if (user == null)
@@ -297,7 +292,7 @@
             }
             var userFactors = await this.UserManager.GetValidTwoFactorProvidersAsync(userId);
             var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
-            return this.View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
+            return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
 
         //
@@ -346,7 +341,7 @@
                     // If the user does not have an account, then prompt the user to create an account
                     this.ViewBag.ReturnUrl = returnUrl;
                     this.ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
-                    return this.View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
+                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
             }
         }
 
@@ -385,7 +380,7 @@
             }
 
             this.ViewBag.ReturnUrl = returnUrl;
-            return this.View(model);
+            return View(model);
         }
 
         //

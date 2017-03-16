@@ -7,8 +7,7 @@
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.Owin;
     using Microsoft.Owin.Security;
-    using ViewModels.ExternalVerificationViewModels;
-    using ViewModels.LoginViewModels;
+    using ViewModels.ManageViewModels;
 
     [Authorize]
     public class ManageController : Controller
@@ -72,7 +71,7 @@
                 Logins = await this.UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await this.AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
-            return this.View(model);
+            return View(model);
         }
 
         //
@@ -114,7 +113,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View(model);
+                return View(model);
             }
             // Generate the token and send it
             var code = await this.UserManager.GenerateChangePhoneNumberTokenAsync(this.User.Identity.GetUserId(), model.Number);
@@ -166,7 +165,7 @@
         {
             var code = await this.UserManager.GenerateChangePhoneNumberTokenAsync(this.User.Identity.GetUserId(), phoneNumber);
             // Send an SMS through the SMS provider to verify the phone number
-            return phoneNumber == null ? this.View("Error") : this.View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
+            return phoneNumber == null ? this.View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
         }
 
         //
@@ -177,7 +176,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View(model);
+                return View(model);
             }
             var result = await this.UserManager.ChangePhoneNumberAsync(this.User.Identity.GetUserId(), model.PhoneNumber, model.Code);
             if (result.Succeeded)
@@ -191,7 +190,7 @@
             }
             // If we got this far, something failed, redisplay form
             this.ModelState.AddModelError("", "Failed to verify phone");
-            return this.View(model);
+            return View(model);
         }
 
         //
@@ -226,7 +225,7 @@
         {
             if (!this.ModelState.IsValid)
             {
-                return this.View(model);
+                return View(model);
             }
             var result = await this.UserManager.ChangePasswordAsync(this.User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
             if (result.Succeeded)
@@ -239,7 +238,7 @@
                 return this.RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
             }
             this.AddErrors(result);
-            return this.View(model);
+            return View(model);
         }
 
         //
@@ -271,7 +270,7 @@
             }
 
             // If we got this far, something failed, redisplay form
-            return this.View(model);
+            return View(model);
         }
 
         //
@@ -290,7 +289,7 @@
             var userLogins = await this.UserManager.GetLoginsAsync(this.User.Identity.GetUserId());
             var otherLogins = this.AuthenticationManager.GetExternalAuthenticationTypes().Where(auth => userLogins.All(ul => auth.AuthenticationType != ul.LoginProvider)).ToList();
             this.ViewBag.ShowRemoveButton = user.PasswordHash != null || userLogins.Count > 1;
-            return this.View(new ManageLoginsViewModel
+            return View(new ManageLoginsViewModel
             {
                 CurrentLogins = userLogins,
                 OtherLogins = otherLogins

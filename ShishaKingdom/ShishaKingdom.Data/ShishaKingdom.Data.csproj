@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EE6DC2A9-EC47-4455-8BF5-024581AFC0AC}</ProjectGuid>
+    <ProjectGuid>{5E659F98-241D-43B3-A16A-7186F97C52C0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ShishaKingdom.Data</RootNamespace>
@@ -60,20 +60,44 @@
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\IShishaKingdomContext.cs" />
     <Compile Include="Contracts\IShishaKingdomData.cs" />
+    <Compile Include="Migrations\201703160912001_InitialCreate.cs" />
+    <Compile Include="Migrations\201703160912001_InitialCreate.Designer.cs">
+      <DependentUpon>201703160912001_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703161012555_init.cs" />
+    <Compile Include="Migrations\201703161012555_init.Designer.cs">
+      <DependentUpon>201703161012555_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703161030251_uh-oh.cs" />
+    <Compile Include="Migrations\201703161030251_uh-oh.Designer.cs">
+      <DependentUpon>201703161030251_uh-oh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ShishaKingdomContext.cs" />
-    <Compile Include="ShishaKingdomData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="ShishaKingdomData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShishaKingdom.Models\ShishaKingdom.Models.csproj">
+      <Project>{A6471258-A590-4AAF-AA2E-9621F44ED26D}</Project>
+      <Name>ShishaKingdom.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ShishaKingdom.Models\ShishaKingdom.Models.csproj">
-      <Project>{C1F2DBAB-51BA-4BB0-A772-97868DB4E9DD}</Project>
-      <Name>ShishaKingdom.Models</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="Migrations\201703160912001_InitialCreate.resx">
+      <DependentUpon>201703160912001_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161012555_init.resx">
+      <DependentUpon>201703161012555_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703161030251_uh-oh.resx">
+      <DependentUpon>201703161030251_uh-oh.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
