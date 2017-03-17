@@ -6,6 +6,7 @@
     using AutoMapper;
     using Models;
     using ViewModels.Categories;
+    using ViewModels.Products;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -24,6 +25,9 @@
             {
                 cfg.CreateMap<Category, CategoryViewModel>();
                 cfg.CreateMap<AddCategoryViewModel, Category>();
+                cfg.CreateMap<Category, CategoryWithProductsViewModel>()
+                    .ForMember(dest => dest.Products, opts => opts.MapFrom(src => src.Products));
+                cfg.CreateMap<Product, ProductViewModel>();
             });
         }
     }

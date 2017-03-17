@@ -41,5 +41,8 @@ textarea {
 }
 
 #mainBody {
-    background: rgba(179, 134, 0, 0.35) !important;
+    background: rgba(179, 134, 0, 0.10) !important;
+}
+a.list-group-item {
+    border-color: rgba(179, 134, 0, 0.65)
 }

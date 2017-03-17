@@ -51,8 +51,13 @@ namespace ShishaKingdom.Web.Controllers
             {
                 return this.View(adcvm);
             }
+        }
 
-          
+        [Route("category")]
+        public ActionResult Category(int id)
+        {
+            var categoryVm = Mapper.Map<Category,CategoryWithProductsViewModel>(this.service.FindCategoryById(id));
+            return this.View(categoryVm);
         }
 
     }

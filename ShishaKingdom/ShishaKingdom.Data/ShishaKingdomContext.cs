@@ -27,5 +27,11 @@
         {
             return base.Set<T>();
         }
+        
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>().HasOptional(c => c.SubCategories).WithMany();
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

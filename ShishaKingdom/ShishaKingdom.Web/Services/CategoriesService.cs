@@ -22,5 +22,10 @@
             this.data.Categories.InsertOrUpdate(category);
             this.data.SaveChanges();
         }
+
+        public Category FindCategoryById(int id)
+        {
+            return this.data.Categories.GetById(id);
+        }
     }
 }

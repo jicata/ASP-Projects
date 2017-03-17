@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201703161030251_uh-oh.Designer.cs">
       <DependentUpon>201703161030251_uh-oh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703171157545_subcategoreis.cs" />
+    <Compile Include="Migrations\201703171157545_subcategoreis.Designer.cs">
+      <DependentUpon>201703171157545_subcategoreis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ShishaKingdomContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703161030251_uh-oh.resx">
       <DependentUpon>201703161030251_uh-oh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703171157545_subcategoreis.resx">
+      <DependentUpon>201703171157545_subcategoreis.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

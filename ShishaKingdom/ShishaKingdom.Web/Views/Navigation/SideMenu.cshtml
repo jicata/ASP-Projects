@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ShishaKingdom.Web.ViewModels.Categories.CategoryViewModel>
+
+@{
+    ViewBag.Title = "Категории";
+}
+
+
+
+
+<div class="list-group">
+    <h2>Категории</h2>
+    @foreach (var categoryViewModel in Model)
+    {
+        <a href="@Url.Action("Category", "Categories")?id=@categoryViewModel.Id" class="list-group-item">
+            <span class="badge">14</span>
+            @categoryViewModel.Name
+        </a>
+    }
+</div>
+
+@*<div class="list-group">
+        <h2>Категории</h2>
+        @foreach (var categoryViewModel in Model)
+        {
+            <a class="list-group-item" data-toggle="collapse" style="border-color: rgba(179, 134, 0, 0.65)" href="#collapseExample">
+                <span class="badge">14</span>
+                @categoryViewModel.Name
+            </a>
+            <div class="collapse" id="collapseExample">
+                <div class="well">
+                    kur kapan
+                </div>
+            </div>
+        }
+    </div>*@
+
