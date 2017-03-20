@@ -8,7 +8,6 @@
 
 
 <div class="list-group">
-    <h2>Категории</h2>
     @foreach (var categoryViewModel in Model)
     {
         <a href="@Url.Action("Category", "Categories")?id=@categoryViewModel.Id" class="list-group-item">

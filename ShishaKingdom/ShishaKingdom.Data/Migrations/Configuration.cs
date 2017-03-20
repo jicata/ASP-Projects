@@ -16,12 +16,7 @@ namespace ShishaKingdom.Data.Migrations
 
         protected override void Seed(ShishaKingdom.Data.ShishaKingdomContext context)
         {
-            var wishlist = new WishList();
-            var user = context.Users.FirstOrDefault();
-        
-            wishlist.Id = Guid.NewGuid().ToString();
-            wishlist.Customer = user;
-            context.SaveChanges();
+            
         }
     }
 }

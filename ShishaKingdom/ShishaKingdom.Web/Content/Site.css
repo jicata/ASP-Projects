@@ -1,15 +1,17 @@
 ﻿html *
 {
-    color: #ffffff !important;
+    color: black !important;
     /*font-family: Geneva, Tahoma, Verdana, sans-serif;*/
+    border: rebeccapurple;
 }
 
 body {
-    background: url(Images/background3.png)no-repeat center center fixed;
+    background: url(Images/smokebackground.jpg)no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    padding-bottom: 33px;
 
 }
 
@@ -41,8 +43,5 @@ textarea {
 }
 
 #mainBody {
-    background: rgba(179, 134, 0, 0.10) !important;
-}
-a.list-group-item {
-    border-color: rgba(179, 134, 0, 0.65)
+    background: rgba(255, 255, 255, 0.75) !important;
 }
