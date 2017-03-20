@@ -28,6 +28,7 @@
                 cfg.CreateMap<Category, CategoryWithProductsViewModel>()
                     .ForMember(dest => dest.Products, opts => opts.MapFrom(src => src.Products));
                 cfg.CreateMap<Product, ProductViewModel>();
+                cfg.CreateMap<CategoryViewModel, Category>();
             });
         }
     }

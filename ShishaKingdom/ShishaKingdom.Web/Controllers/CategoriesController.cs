@@ -60,5 +60,23 @@ namespace ShishaKingdom.Web.Controllers
             return this.View(categoryVm);
         }
 
+
+        [Route("edit")]
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var cat = Mapper.Map<CategoryViewModel>(this.service.GetCategoryById(id));
+            return this.View(cat);
+        }
+
+        [Route("edit")]
+        [HttpPost]
+        public ActionResult Edit(int id,CategoryViewModel cvm)
+        {
+            var editedCategory = Mapper.Map<Category>(cvm);
+            this.service.UpdateCategeroy(editedCategory);
+            this.TempData["success"] = "Успешно променена категория!";
+            return this.Redirect("All");
+        }
     }
 }

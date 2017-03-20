@@ -27,5 +27,16 @@
         {
             return this.data.Categories.GetById(id);
         }
+
+        public Category GetCategoryById(int id)
+        {
+            return this.data.Categories.GetById(id);
+        }
+
+        public void UpdateCategeroy(Category editedCategory)
+        {
+            this.data.Categories.InsertOrUpdate(editedCategory);
+            this.data.SaveChanges();
+        }
     }
 }

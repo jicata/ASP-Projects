@@ -55,15 +55,15 @@
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "192452107910143",
+               appSecret: "5deffa911511d657401920ff8c0d0aa4");
 
-            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            {
-                ClientId = "371058628984-bfr3id1ec58msoml498u2iubmlits0nn.apps.googleusercontent.com",
-                ClientSecret = "kqCofYp6RYlb_LQjOwLgePzo"
-            });
+            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            //{
+            //    ClientId = "371058628984-bfr3id1ec58msoml498u2iubmlits0nn.apps.googleusercontent.com",
+            //    ClientSecret = "kqCofYp6RYlb_LQjOwLgePzo"
+            //});
         }
     }
 }
