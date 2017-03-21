@@ -5,6 +5,7 @@
     using System.Web.Routing;
     using AutoMapper;
     using Models;
+    using Models.Enums;
     using ViewModels.Categories;
     using ViewModels.Products;
 
@@ -27,8 +28,11 @@
                 cfg.CreateMap<AddCategoryViewModel, Category>();
                 cfg.CreateMap<Category, CategoryWithProductsViewModel>()
                     .ForMember(dest => dest.Products, opts => opts.MapFrom(src => src.Products));
-                cfg.CreateMap<Product, ProductViewModel>();
+                cfg.CreateMap<Product, ProductViewModel>()
+                    .ForMember(dest => dest.Available,
+                        opts => opts.MapFrom(src => src.Availability.ToString() == "Available"));
                 cfg.CreateMap<CategoryViewModel, Category>();
+                cfg.CreateMap<AddProductViewModel, Product>();
             });
         }
     }

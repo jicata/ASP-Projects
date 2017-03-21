@@ -234,6 +234,7 @@
     <Compile Include="Services\Base\ICategoriesService.cs" />
     <Compile Include="Services\Base\Service.cs" />
     <Compile Include="Services\CategoriesService.cs" />
+    <Compile Include="Services\ProductsService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Categories\AddCategoryViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
@@ -255,6 +256,7 @@
     <Compile Include="ViewModels\ManageViewModels\IndexViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels\SetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Products\AddProductViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -322,6 +324,7 @@
     <Content Include="Views\Products\AddProduct.cshtml" />
     <Content Include="Views\Categories\Category.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Products\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

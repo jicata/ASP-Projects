@@ -3,7 +3,6 @@
     public enum Availability
     {
         Available,
-        Limited,
         None
     }
 }

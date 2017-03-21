@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ShishaKingdom.Web.ViewModels.Products.ProductViewModel>
+
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>All</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddProduct")
+</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Total</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var productViewModel in Model)
+    {
+        <tr>
+            <td class="col-sm-8 col-md-6">
+                <div class="media">
+                    <a class="thumbnail pull-left" href="#"> <img class="media-object" src="@productViewModel.ImageUrl" style="width: 72px; height: 72px;"> </a>
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="#">@productViewModel.Name</a></h4>
+                        <span>Status: </span><span class="text-success"><strong>@productViewModel.Available</strong></span>
+                        <h5 class="media-heading"> by <a href="#">@productViewModel.Description</a></h5>
+                    </div>
+                </div>
+            </td>
+            <td class="col-sm-1 col-md-1" style="text-align: center">
+                <input type="email" class="form-control" id="exampleInputEmail1" value="@productViewModel.Description">
+            </td>
+            <td class="col-sm-1 col-md-1 text-center"><strong>$@productViewModel.Price</strong></td>
+            @*<td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>*@
+            <td class="col-sm-1 col-md-1">
+                <a href="/products/remove" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove">Remove</span> 
+                </a>
+            </td>
+        </tr>
+    }
+    
+    </tbody>
+
+</table>
