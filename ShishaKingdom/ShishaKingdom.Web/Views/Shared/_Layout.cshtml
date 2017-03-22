@@ -28,6 +28,7 @@
                 <li>@Html.ActionLink("За нас", "About", "Home")</li>
                 <li>@Html.ActionLink("Контакти", "Contact", "Home")</li>
                 <li>@Html.ActionLink("Категории","All","Categories")</li>
+                <li>@Html.ActionLink("Продукти","All","Products")</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
@@ -35,11 +36,40 @@
 </div>
 
 <div class="container body-content" id="mainBody">
-    <div class="row">
-        <div class="col-md-3 no-float" style="border-right: solid 1px #eeeeee;">@Html.Action("SideMenu", "Navigation")</div>
-        <div class="col-md-9 no-float">@RenderBody()</div>
-    </div>
+    @RenderBody();
+ 
 </div>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul id="sidebar_menu" class="sidebar-nav" style="text-align: right; padding-right: 10px;
+                padding-top: 10px">
+                <li class="sidebar-brand">
+                    <a id="menu-toggle" href="#">
+                        <span id="main_icon" class="navbar-icon fa fa-bars icon">
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand"><a href="#">Start Bootstrap </a></li>
+                <li><a href="#">Home</a> </li>
+                <li><a href="#">About</a> </li>
+                <li><a href="#">Contact</a> </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <br />
+            <br />
+            <hr />
+            <footer>
+                <p>&copy; 2015 - My ASP.NET Application</p>
+            </footer>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
     <footer class="footer navbar-fixed-bottom navbar-default">
         <div class="container">
             <div class="navbar-header">

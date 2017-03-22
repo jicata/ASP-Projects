@@ -40,5 +40,12 @@
             this.service.AddProduct(product);
             return this.Redirect("All");
         }
+
+        [Route("remove")]
+        public ActionResult Remove(int id)
+        {
+            this.service.RemoveProduct(id);
+            return this.Redirect("All");
+        }
     }
 }

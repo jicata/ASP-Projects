@@ -20,5 +20,12 @@
             this.data.Products.InsertOrUpdate(product);
             this.data.SaveChanges();
         }
+
+        public void RemoveProduct(int id)
+        {
+            var product = this.data.Products.GetById(id);
+            this.data.Products.Delete(product);
+            this.data.SaveChanges();
+        }
     }
 }
