@@ -27,8 +27,10 @@ namespace ShishaKingdom.Web.Controllers
         [Route("all")]
         public ActionResult All()
         {
+
+            var cats = this.service.GetAllCategories().ToList();
             var catsVms =
-                Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryViewModel>>(this.service.GetAllCategories());
+                Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryViewModel>>(cats);
             return this.View(catsVms);
         }
 

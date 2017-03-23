@@ -1,5 +1,6 @@
 ﻿namespace ShishaKingdom.Web
 {
+    using System.Linq;
     using System.Web.Mvc;
     using System.Web.Optimization;
     using System.Web.Routing;
@@ -22,9 +23,10 @@
 
         private static void LoadMappings()
         {
-            Mapper.Initialize(cfg => 
+            Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Category, CategoryViewModel>();
+                cfg.CreateMap<Category, CategoryViewModel>()
+                    .ForMember(dest => dest.ProductsCount, opts => opts.MapFrom(src => src.Products.Count));
                 cfg.CreateMap<AddCategoryViewModel, Category>();
                 cfg.CreateMap<Category, CategoryWithProductsViewModel>()
                     .ForMember(dest => dest.Products, opts => opts.MapFrom(src => src.Products));

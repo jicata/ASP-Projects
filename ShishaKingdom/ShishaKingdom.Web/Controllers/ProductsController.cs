@@ -21,18 +21,28 @@
         [Route("all")]
         public ActionResult All()
         {
-            var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(this.service.GetAllProducts());
+            var productsFromDb = this.service.GetAllProducts();
+            var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productsFromDb);
             return this.View(products);
         }
 
-        [Route("add")]
+        [Route("allInCategory")]
+        public ActionResult AllInCategory(string name)
+        {
+            var productsFromCat = this.service.ProductsFromCategory(name);
+            var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productsFromCat);
+            this.ViewBag.CategoryName = name;
+            return this.View(products);
+        }
+
+        [Route("addProduct")]
         public ActionResult AddProduct()
         {
 
             return this.View();
         }
 
-        [Route("add")]
+        [Route("addProduct")]
         [HttpPost]
         public ActionResult AddProduct(AddProductViewModel apvm)
         {

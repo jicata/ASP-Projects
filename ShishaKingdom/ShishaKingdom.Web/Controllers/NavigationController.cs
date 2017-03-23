@@ -1,6 +1,7 @@
 ﻿namespace ShishaKingdom.Web.Controllers
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
     using AutoMapper;
     using Base;
@@ -19,8 +20,9 @@
 
         public ActionResult SideMenu()
         {
-            var cats = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryViewModel>>(this.service.GetAllCategories());
-            return this.PartialView(cats);
+            var cats = this.service.GetAllCategories().ToList();
+            var partialCats = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryViewModel>>(cats);
+            return this.PartialView("_SideMenu",partialCats);
         }
 
         public ActionResult Category()

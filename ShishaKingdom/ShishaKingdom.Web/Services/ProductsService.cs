@@ -1,6 +1,7 @@
 ﻿namespace ShishaKingdom.Web.Services
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Data.Contracts;
     using Models;
 
@@ -27,5 +28,11 @@
             this.data.Products.Delete(product);
             this.data.SaveChanges();
         }
+
+        public IEnumerable<Product> ProductsFromCategory(string name)
+        {
+            return this.data.Categories.GetAll().FirstOrDefault(c=>c.Name == name).Products;
+        }
+
     }
 }
