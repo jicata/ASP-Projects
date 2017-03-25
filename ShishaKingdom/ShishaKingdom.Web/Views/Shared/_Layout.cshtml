@@ -36,7 +36,10 @@
 </div>
     @Html.Action("SideMenu", "Navigation")
 <div class="container body-content main" id="mainBody">
-        @RenderBody()  
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+   
 </div>
     <footer class="footer navbar-fixed-bottom navbar-default">
         <div class="container">

@@ -13,6 +13,7 @@ namespace ShishaKingdom.Web.Controllers
     using Models;
     using Services;
     using ViewModels.Categories;
+    using ViewModels.Products;
 
     [RoutePrefix("categories")]
     public class CategoriesController : BaseController
@@ -58,7 +59,9 @@ namespace ShishaKingdom.Web.Controllers
         [Route("category")]
         public ActionResult Category(int id)
         {
-            var categoryVm = Mapper.Map<Category,CategoryWithProductsViewModel>(this.service.FindCategoryById(id));
+            var category = this.service.FindCategoryById(id);
+            var categoryVm = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(category.Products.ToList());
+            this.ViewBag.CategoryName = category.Name;
             return this.View(categoryVm);
         }
 

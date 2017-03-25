@@ -22,7 +22,7 @@
                 @foreach (var categoryViewModel in Model)
                 {
                     <li class="active">
-                        <a href="@Url.Action("AllInCategory", "Products")?name=@categoryViewModel.Name">
+                        <a href="@Url.Action("Category", "Categories")?id=@categoryViewModel.Id">
                             @categoryViewModel.Name
                             <span style="font-size: 16px;" class="pull-right hidden-xs showopacity badge">@categoryViewModel.ProductsCount</span>
                         </a>

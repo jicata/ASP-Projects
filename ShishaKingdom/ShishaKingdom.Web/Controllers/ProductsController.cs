@@ -1,61 +1,62 @@
-﻿namespace ShishaKingdom.Web.Controllers
-{
-    using System.Collections.Generic;
-    using System.Web.Mvc;
-    using AutoMapper;
-    using Base;
-    using Data.Contracts;
-    using Models;
-    using Services;
-    using ViewModels.Products;
-
-    [RoutePrefix("products")]
-    public class ProductsController : BaseController
+﻿    namespace ShishaKingdom.Web.Controllers
     {
-        private ProductsService service;
-        public ProductsController(IShishaKingdomData data) : base(data)
-        {
-            this.service = new ProductsService(data);
-        }
+        using System.Collections.Generic;
+        using System.Web.Mvc;
+        using AutoMapper;
+        using Base;
+        using Data.Contracts;
+        using Models;
+        using Services;
+        using ViewModels.Products;
 
-        [Route("all")]
-        public ActionResult All()
+        [RoutePrefix("products")]
+        public class ProductsController : BaseController
         {
-            var productsFromDb = this.service.GetAllProducts();
-            var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productsFromDb);
-            return this.View(products);
-        }
+            private ProductsService service;
+            public ProductsController(IShishaKingdomData data) : base(data)
+            {
+                this.service = new ProductsService(data);
+            }
 
-        [Route("allInCategory")]
-        public ActionResult AllInCategory(string name)
-        {
-            var productsFromCat = this.service.ProductsFromCategory(name);
-            var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productsFromCat);
-            this.ViewBag.CategoryName = name;
-            return this.View(products);
-        }
+            [Route("all")]
+            public ActionResult All()
+            {
+                var productsFromDb = this.service.GetAllProducts();
+                var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productsFromDb);
+                return this.View(products);
+            }
 
-        [Route("addProduct")]
-        public ActionResult AddProduct()
-        {
+            //[Route("allInCategory")]
+            //public ActionResult AllInCategory(string name)
+            //{
+            //    var productsFromCat = this.service.ProductsFromCategory(name);
+            //    var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productsFromCat);
+            //    this.ViewBag.CategoryName = name;
+            //    return this.View(products);
+            //}
 
-            return this.View();
-        }
+            [Route("addProduct")]
+            public ActionResult AddProduct(string category)
+            {
 
-        [Route("addProduct")]
-        [HttpPost]
-        public ActionResult AddProduct(AddProductViewModel apvm)
-        {
-            var product = Mapper.Map<Product>(apvm);
-            this.service.AddProduct(product);
-            return this.Redirect("All");
-        }
+                this.ViewBag.CategoryName = category;
+                return this.View();
+            }
 
-        [Route("remove")]
-        public ActionResult Remove(int id)
-        {
-            this.service.RemoveProduct(id);
-            return this.Redirect("All");
+            [Route("addProduct")]
+            [HttpPost]
+            public ActionResult AddProduct(AddProductViewModel apvm)
+            {
+                this.service.AddProductToCategory(apvm);
+                return this.RedirectToAction("Category", "Categories",
+                    new {id = this.service.FindCategoryByName(apvm.Name).Id});
+            }
+
+            [Route("remove")]
+            public ActionResult Remove(int id)
+            {
+                this.service.RemoveProduct(id);
+                return this.Redirect("All");
+            }
         }
     }
-}

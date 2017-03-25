@@ -1,5 +1,6 @@
 ﻿namespace ShishaKingdom.Web
 {
+    using System;
     using System.Linq;
     using System.Web.Mvc;
     using System.Web.Optimization;
@@ -34,7 +35,8 @@
                     .ForMember(dest => dest.Available,
                         opts => opts.MapFrom(src => src.Availability.ToString() == "Available"));
                 cfg.CreateMap<CategoryViewModel, Category>();
-                cfg.CreateMap<AddProductViewModel, Product>();
+                cfg.CreateMap<AddProductViewModel, Product>()
+                    .ForMember(dest => dest.AvailableSince, opts => opts.MapFrom(src => DateTime.Now));
             });
         }
     }

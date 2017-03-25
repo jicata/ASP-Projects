@@ -2,8 +2,10 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using AutoMapper;
     using Data.Contracts;
     using Models;
+    using ViewModels.Products;
 
     public class ProductsService : Service
     {
@@ -34,5 +36,17 @@
             return this.data.Categories.GetAll().FirstOrDefault(c=>c.Name == name).Products;
         }
 
+        public void AddProductToCategory(AddProductViewModel apvm)
+        {
+
+            var product = Mapper.Map<Product>(apvm);
+            this.FindCategoryByName(apvm.CategoryName).Products.Add(product);
+            this.data.SaveChanges();
+        }
+
+        public Category FindCategoryByName(string apvmName)
+        {
+            return this.data.Categories.FindByPredicate(c => c.Name == apvmName);
+        }
     }
 }
