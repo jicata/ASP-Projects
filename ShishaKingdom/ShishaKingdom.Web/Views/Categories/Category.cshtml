@@ -5,27 +5,37 @@
     ViewBag.Title = "All";
 }
 
-<link href="@Url.Content("~/Content/productsStyle.css")" rel="stylesheet" type="text/css" />
-<h2>@ViewBag.CategoryName</h2>
 
-<p>
-    @Html.ActionLink("Нов Продукт", "AddProduct","Products",new {category=@ViewBag.CategoryName}, null)
-</p>
+
+<link href="@Url.Content("~/Content/productsStyle.css")" rel="stylesheet" type="text/css" />
+
+
+
 <div class="row">
+        <h2>@ViewBag.CategoryName</h2>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="btn-group" style="margin-bottom: 5px">
+                @Html.ActionLink("Нов Продукт", "AddProduct", "Products", new { category = @ViewBag.CategoryName }, htmlAttributes: new { @class = "btn btn-white btn-info active" })
+            </div>
+        }
+   
     <div class="col-md-12">
+
         @foreach (ProductViewModel pvm in Model)
         {
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-3 col-sm-6" style="padding-left: 0">
                 <span class="thumbnail">
-                    <img src="@pvm.ImageUrl" alt="picture for @pvm.Description">
+                    <img src="@pvm.ImageUrl" alt="picture for @pvm.Description" class="img-thumbnail" style="width: 200px; height: 200px">
                     <h4>@pvm.Name</h4>
                     <p>@pvm.Description</p>
                     <hr class="line">
                     <div class="row">
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-7 col-sm-7">
                             <p class="price">@pvm.Price BGN</p>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div class="col-md-5 col-sm-5">
                             <button class="btn btn-success right">Поръчай</button>
                         </div>
 

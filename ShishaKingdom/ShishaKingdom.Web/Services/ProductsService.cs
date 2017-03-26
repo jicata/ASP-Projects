@@ -24,9 +24,8 @@
             this.data.SaveChanges();
         }
 
-        public void RemoveProduct(int id)
+        public void RemoveProduct(Product product)
         {
-            var product = this.data.Products.GetById(id);
             this.data.Products.Delete(product);
             this.data.SaveChanges();
         }
@@ -47,6 +46,11 @@
         public Category FindCategoryByName(string apvmName)
         {
             return this.data.Categories.FindByPredicate(c => c.Name == apvmName);
+        }
+
+        public Product FindProductById(int id)
+        {
+            return this.data.Products.GetById(id);
         }
     }
 }

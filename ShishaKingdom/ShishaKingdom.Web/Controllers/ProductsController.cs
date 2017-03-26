@@ -49,14 +49,16 @@
             {
                 this.service.AddProductToCategory(apvm);
                 return this.RedirectToAction("Category", "Categories",
-                    new {id = this.service.FindCategoryByName(apvm.Name).Id});
+                    new {id = this.service.FindCategoryByName(apvm.CategoryName).Id});
             }
 
             [Route("remove")]
             public ActionResult Remove(int id)
             {
-                this.service.RemoveProduct(id);
-                return this.Redirect("All");
+                var product = this.service.FindProductById(id);
+                int catId = product.Category.Id;
+                this.service.RemoveProduct(product);
+                return this.RedirectToAction("Edit", "Categories", new {id = catId});
             }
         }
     }

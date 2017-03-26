@@ -16,6 +16,7 @@ namespace ShishaKingdom.Web.Controllers
     using ViewModels.Products;
 
     [RoutePrefix("categories")]
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : BaseController
     {
         private CategoriesService service;
@@ -57,6 +58,7 @@ namespace ShishaKingdom.Web.Controllers
         }
 
         [Route("category")]
+        [AllowAnonymous]
         public ActionResult Category(int id)
         {
             var category = this.service.FindCategoryById(id);

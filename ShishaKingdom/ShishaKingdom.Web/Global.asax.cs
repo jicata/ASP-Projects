@@ -27,7 +27,8 @@
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<Category, CategoryViewModel>()
-                    .ForMember(dest => dest.ProductsCount, opts => opts.MapFrom(src => src.Products.Count));
+                    .ForMember(dest => dest.ProductsCount, opts => opts.MapFrom(src => src.Products.Count))
+                    .ForMember(dest=>dest.ProductViewModels, opts=>opts.MapFrom(src=>src.Products));
                 cfg.CreateMap<AddCategoryViewModel, Category>();
                 cfg.CreateMap<Category, CategoryWithProductsViewModel>()
                     .ForMember(dest => dest.Products, opts => opts.MapFrom(src => src.Products));
