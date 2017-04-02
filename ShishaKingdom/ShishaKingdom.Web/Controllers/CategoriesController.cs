@@ -26,36 +26,8 @@ namespace ShishaKingdom.Web.Controllers
             this.service = new CategoriesService(data);
         }
 
-        [Route("all")]
-        public ActionResult All()
-        {
+    
 
-            var cats = this.service.GetAllCategories().ToList();
-            var catsVms =
-                Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryViewModel>>(cats);
-            return this.View(catsVms);
-        }
-
-        [Route("add")]
-        public ActionResult Add()
-        {
-            return this.View();
-        }
-        [Route("add")]
-        [HttpPost]
-        public ActionResult Add(AddCategoryViewModel adcvm)
-        {
-            try
-            {
-                var category = Mapper.Map<Category>(adcvm);
-                this.service.AddNewCategory(category);
-                return this.Redirect("all");
-            }
-            catch (Exception e)
-            {
-                return this.View(adcvm);
-            }
-        }
 
         [Route("category")]
         [AllowAnonymous]
@@ -68,22 +40,6 @@ namespace ShishaKingdom.Web.Controllers
         }
 
 
-        [Route("edit")]
-        [HttpGet]
-        public ActionResult Edit(int id)
-        {
-            var cat = Mapper.Map<CategoryViewModel>(this.service.GetCategoryById(id));
-            return this.View(cat);
-        }
-
-        [Route("edit")]
-        [HttpPost]
-        public ActionResult Edit(int id,CategoryViewModel cvm)
-        {
-            var editedCategory = Mapper.Map<Category>(cvm);
-            this.service.UpdateCategeroy(editedCategory);
-            this.TempData["success"] = "Успешно променена категория!";
-            return this.Redirect("All");
-        }
+        
     }
 }

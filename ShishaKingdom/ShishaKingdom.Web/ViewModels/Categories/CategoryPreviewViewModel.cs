@@ -1,14 +1,14 @@
 ﻿namespace ShishaKingdom.Web.ViewModels.Categories
 {
-    using System.ComponentModel.DataAnnotations;
-
-    public class AddCategoryViewModel
+    public class CategoryPreviewViewModel
     {
-        [Required]
-        [StringLength(20, MinimumLength = (4))]
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        public string CarouselActive { get; set; }
 
         public string ImgUrl { get; set; }
     }

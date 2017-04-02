@@ -38,6 +38,7 @@
                 cfg.CreateMap<CategoryViewModel, Category>();
                 cfg.CreateMap<AddProductViewModel, Product>()
                     .ForMember(dest => dest.AvailableSince, opts => opts.MapFrom(src => DateTime.Now));
+                cfg.CreateMap<Category, CategoryPreviewViewModel>();
             });
         }
     }

@@ -1,6 +1,39 @@
-﻿@{
+﻿@model IEnumerable<ShishaKingdom.Web.ViewModels.Categories.CategoryPreviewViewModel>
+@{
     ViewBag.Title = "Home";
 }
+<link rel="stylesheet" href="../../Content/homeCarousel.css" />
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause="true">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        @foreach (var categoryPreviewViewModel in Model)
+        {
+            <div class="item @categoryPreviewViewModel.CarouselActive">
+                <img src="@categoryPreviewViewModel.ImgUrl" alt="picture">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p>
+                            @categoryPreviewViewModel.Description
+                        </p>
+                        <p>
+                            <div class="btn-group" style="margin-bottom: 5px">
+                                @Html.ActionLink(@categoryPreviewViewModel.Name, "Category", "Categories",
+                               new {id=@categoryPreviewViewModel.Id}, new { @class = "btn btn-lg btn-primary", role="button" })
+                            </div>
 
-
-
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->

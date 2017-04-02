@@ -27,14 +27,14 @@
                 <li>@Html.ActionLink("Начало", "Index", "Home")</li>
                 <li>@Html.ActionLink("За нас", "About", "Home")</li>
                 <li>@Html.ActionLink("Контакти", "Contact", "Home")</li>
-                <li>@Html.ActionLink("Категории","All","Categories")</li>
+                <li>@Html.ActionLink("Категории","All","Categories", new {area="Administration"},null)</li>
                 <li>@Html.ActionLink("Продукти","All","Products")</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
     </div>
 </div>
-    @Html.Action("SideMenu", "Navigation")
+    @Html.Action("SideMenu", "Navigation",new {area=""})
 <div class="container body-content main" id="mainBody">
     <div class="container-fluid">
         @RenderBody()
@@ -51,6 +51,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-   <script src=@Url.Content("../../Content/sideMenuJs.js") type="text/javascript"></script>
+<script src=@Url.Content("../../Content/sideMenuJs.js") type="text/javascript"></script>
+    <script src=@Url.Content("../../Content/indexCarousel.js") type="text/javascript"></script>
 </body>
 </html>

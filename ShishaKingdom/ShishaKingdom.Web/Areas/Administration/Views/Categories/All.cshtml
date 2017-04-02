@@ -12,7 +12,9 @@
 }
 <h2>Категории</h2>
 
-<a href="/categories/add" class="btn btn-info" style="margin-bottom:5px">Нова категория</a>
+<div class="btn-group" style="margin-bottom: 5px">
+    @Html.ActionLink("Нова категория", "Add", "Categories", htmlAttributes: new {area="Administration", @class = "btn btn-white btn-info active" })
+</div>
 <div class="panel panel-default">
     <table class="table table-striped">
         <tr>

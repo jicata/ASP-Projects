@@ -26,15 +26,6 @@
                 return this.View(products);
             }
 
-            //[Route("allInCategory")]
-            //public ActionResult AllInCategory(string name)
-            //{
-            //    var productsFromCat = this.service.ProductsFromCategory(name);
-            //    var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productsFromCat);
-            //    this.ViewBag.CategoryName = name;
-            //    return this.View(products);
-            //}
-
             [Route("addProduct")]
             public ActionResult AddProduct(string category)
             {
