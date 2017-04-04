@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ShishaKingdom.Data;
 
 namespace ShishaKingdom.Web.Controllers
 {
@@ -20,6 +21,13 @@ namespace ShishaKingdom.Web.Controllers
     public class CategoriesController : BaseController
     {
         private CategoriesService service;
+
+        public CategoriesController()
+            :this(new ShishaKingdomData(new ShishaKingdomContext()))
+        {
+            
+        }
+
         public CategoriesController(IShishaKingdomData data) 
             : base(data)
         {

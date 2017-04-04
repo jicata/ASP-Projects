@@ -1,4 +1,6 @@
-﻿namespace ShishaKingdom.Web.Controllers
+﻿using ShishaKingdom.Data;
+
+namespace ShishaKingdom.Web.Controllers
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -13,6 +15,13 @@
     public class NavigationController : BaseController
     {
         private CategoriesService service;
+
+        public NavigationController()
+            :this(new ShishaKingdomData(new ShishaKingdomContext()))
+        {
+
+        }
+
         public NavigationController(IShishaKingdomData data) : base(data)
         {
             this.service = new CategoriesService(data);

@@ -1,4 +1,6 @@
-﻿namespace ShishaKingdom.Web.Controllers
+﻿using ShishaKingdom.Data;
+
+namespace ShishaKingdom.Web.Controllers
 {
     using System.Linq;
     using System.Threading.Tasks;
@@ -19,6 +21,7 @@
 
         public AccountController()
         {
+            
         }
 
         public AccountController(UserManager userManager, ApplicationSignInManager signInManager )

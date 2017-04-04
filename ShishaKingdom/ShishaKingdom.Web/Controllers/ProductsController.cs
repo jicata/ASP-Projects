@@ -1,4 +1,6 @@
-﻿    namespace ShishaKingdom.Web.Controllers
+﻿    using ShishaKingdom.Data;
+
+namespace ShishaKingdom.Web.Controllers
     {
         using System.Collections.Generic;
         using System.Web.Mvc;
@@ -13,7 +15,14 @@
         public class ProductsController : BaseController
         {
             private ProductsService service;
-            public ProductsController(IShishaKingdomData data) : base(data)
+
+        public ProductsController()
+            :this(new ShishaKingdomData(new ShishaKingdomContext()))
+        {
+
+        }
+
+        public ProductsController(IShishaKingdomData data) : base(data)
             {
                 this.service = new ProductsService(data);
             }

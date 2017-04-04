@@ -15,6 +15,12 @@
     {
         private CategoriesService service;
 
+        public HomeController()
+            :this(new ShishaKingdomData(new ShishaKingdomContext()))
+        {
+
+        }
+
         public HomeController(IShishaKingdomData data) 
             : base(data)
         {
