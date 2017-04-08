@@ -260,6 +260,7 @@
     <Compile Include="ViewModels\ManageViewModels\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Products\AddProductViewModel.cs" />
+    <Compile Include="ViewModels\Products\EditProductViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -331,6 +332,7 @@
     <Content Include="Views\Products\AllInCategory.cshtml" />
     <Content Include="Areas\Administration\Views\Categories\Add.cshtml" />
     <Content Include="Views\Products\All.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

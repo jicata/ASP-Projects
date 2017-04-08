@@ -60,5 +60,23 @@ namespace ShishaKingdom.Web.Controllers
                 this.service.RemoveProduct(product);
                 return this.RedirectToAction("Edit", "Categories", new {id = catId});
             }
+
+            [Route("edit")]
+            public ActionResult Edit(int id)
+            {
+                var editProductViewModel = Mapper.Map<EditProductViewModel>(this.service.FindProductById(id));
+                var categories = this.service.GetAllCategories();
+                foreach (var category in categories)
+                {
+                    var selectListItem = new SelectListItem()
+                    {
+                        Value = category.Id.ToString(),
+                        Text = category.Name,
+                        Selected = editProductViewModel.Category == category.Name
+                    };
+                editProductViewModel.Categories.Add(selectListItem);
+                }
+                return this.View(editProductViewModel);
+            }
         }
     }

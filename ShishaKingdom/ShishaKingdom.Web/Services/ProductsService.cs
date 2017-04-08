@@ -52,5 +52,10 @@
         {
             return this.data.Products.GetById(id);
         }
+
+        public IEnumerable<Category> GetAllCategories()
+        {
+            return this.data.Categories.GetAll();
+        }
     }
 }
