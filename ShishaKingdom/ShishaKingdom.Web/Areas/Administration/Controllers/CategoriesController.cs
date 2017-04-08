@@ -11,7 +11,8 @@
     using ViewModels.Categories;
     using Web.Controllers.Base;
 
-    
+
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : BaseController
     {
         private CategoriesService service;

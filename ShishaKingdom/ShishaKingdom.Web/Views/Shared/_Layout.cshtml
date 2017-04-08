@@ -24,11 +24,14 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Начало", "Index", "Home")</li>
-                <li>@Html.ActionLink("За нас", "About", "Home")</li>
-                <li>@Html.ActionLink("Контакти", "Contact", "Home")</li>
-                <li>@Html.ActionLink("Категории","All","Categories", new {area="Administration"},null)</li>
-                <li>@Html.ActionLink("Продукти","All","Products")</li>
+                <li>@Html.ActionLink("Начало", "Index", "Home", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("За нас", "About", "Home", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("Контакти", "Contact", "Home", new { area = "" }, null)</li>               
+                <li>@Html.ActionLink("Продукти","All","Products", new { area = "" }, null)</li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>@Html.ActionLink("Категории", "All", "Categories", new { area = "Administration" }, null)</li>
+                }
             </ul>
             @Html.Partial("_LoginPartial")
         </div>
