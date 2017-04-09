@@ -24,8 +24,9 @@
             this.data.SaveChanges();
         }
 
-        public void RemoveProduct(Product product)
+        public void RemoveProductById(int productId)
         {
+            var product = this.data.Products.GetById(productId);
             this.data.Products.Delete(product);
             this.data.SaveChanges();
         }
@@ -61,6 +62,16 @@
         public IEnumerable<Category> GetAllCategories()
         {
             return this.data.Categories.GetAll();
+        }
+
+        public void EditProduct(EditProductViewModel epvm)
+        {
+            this.RemoveProductById(epvm.Id);
+
+            var product = Mapper.Map<Product>(epvm);            
+            var category = this.FindCategoryById(epvm.CategoryId);
+            category.Products.Add(product);
+            this.data.SaveChanges();
         }
     }
 }

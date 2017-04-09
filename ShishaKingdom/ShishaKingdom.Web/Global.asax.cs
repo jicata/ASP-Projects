@@ -29,6 +29,8 @@
                 cfg.CreateMap<Category, CategoryViewModel>()
                     .ForMember(dest => dest.ProductsCount, opts => opts.MapFrom(src => src.Products.Count))
                     .ForMember(dest=>dest.ProductViewModels, opts=>opts.MapFrom(src=>src.Products));
+                cfg.CreateMap<Category, EditCategoryViewModel>()
+                    .ForMember(dest => dest.ProductViewModels, opts => opts.MapFrom(src => src.Products));
                 cfg.CreateMap<AddCategoryViewModel, Category>();
                 cfg.CreateMap<Category, CategoryWithProductsViewModel>()
                     .ForMember(dest => dest.Products, opts => opts.MapFrom(src => src.Products));
@@ -40,6 +42,7 @@
                     .ForMember(dest => dest.AvailableSince, opts => opts.MapFrom(src => DateTime.Now));
                 cfg.CreateMap<Category, CategoryPreviewViewModel>();
                 cfg.CreateMap<Product, EditProductViewModel>();
+                cfg.CreateMap<EditProductViewModel, Product>();
             });
         }
     }

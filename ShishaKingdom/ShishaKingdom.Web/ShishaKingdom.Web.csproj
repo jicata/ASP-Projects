@@ -242,6 +242,7 @@
     <Compile Include="ViewModels\Categories\CategoryPreviewViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryViewModel.cs" />
     <Compile Include="ViewModels\Categories\CategoryWithProductsViewModel.cs" />
+    <Compile Include="ViewModels\Categories\EditCategoryViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels\AddPhoneNumberViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels\ConfigureTwoFactorViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels\VerifyPhoneNumberViewModel.cs" />

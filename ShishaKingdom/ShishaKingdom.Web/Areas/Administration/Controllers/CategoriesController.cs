@@ -53,7 +53,7 @@
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var cat = Mapper.Map<CategoryViewModel>(this.service.GetCategoryById(id));
+            var cat = Mapper.Map<EditCategoryViewModel>(this.service.GetCategoryById(id));
             return this.View(cat);
         }
 

@@ -68,8 +68,8 @@ namespace ShishaKingdom.Web.Controllers
         {
             var product = this.service.FindProductById(id);
             int catId = product.Category.Id;
-            this.service.RemoveProduct(product);
-            return this.RedirectToAction("Edit", "Categories", new { id = catId });
+            this.service.RemoveProductById(id);
+            return this.RedirectToAction("Edit", "Categories", new { area="administration",id = catId });
         }
 
         [Route("edit")]
@@ -83,11 +83,23 @@ namespace ShishaKingdom.Web.Controllers
                 {
                     Value = category.Id.ToString(),
                     Text = category.Name,
-                    Selected = editProductViewModel.Category == category.Name
+                    Selected = editProductViewModel.CategoryId == category.Id
                 };
                 editProductViewModel.Categories.Add(selectListItem);
             }
             return this.View(editProductViewModel);
+        }
+
+        [Route("edit")]
+        [HttpPost]
+        public ActionResult Edit(EditProductViewModel epvm)
+        {
+            if (ModelState.IsValid)
+            {
+                this.service.EditProduct(epvm);
+                return RedirectToAction("Category", "Categories", routeValues: new {id = epvm.CategoryId});
+            }
+            return this.View(epvm);
         }
     }
 }
