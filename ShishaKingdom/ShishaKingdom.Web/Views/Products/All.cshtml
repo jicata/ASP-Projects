@@ -12,7 +12,7 @@
     @if (User.IsInRole("Admin"))
     {
         <div class="btn-group" style="margin-bottom: 5px">
-            @Html.ActionLink("Нов Продукт", "AddProduct", "Products", htmlAttributes: new { @class = "btn btn-white btn-info active" })
+            @Html.ActionLink("Нов Продукт", "AddProduct", "Products",null,htmlAttributes: new { @class = "btn btn-white btn-info active" })
         </div>
     }
 

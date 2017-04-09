@@ -1,82 +1,93 @@
-﻿    using ShishaKingdom.Data;
+﻿using ShishaKingdom.Data;
 
 namespace ShishaKingdom.Web.Controllers
-    {
-        using System.Collections.Generic;
-        using System.Web.Mvc;
-        using AutoMapper;
-        using Base;
-        using Data.Contracts;
-        using Models;
-        using Services;
-        using ViewModels.Products;
+{
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
+    using AutoMapper;
+    using Base;
+    using Data.Contracts;
+    using Models;
+    using Services;
+    using ViewModels.Products;
 
-        [RoutePrefix("products")]
-        public class ProductsController : BaseController
-        {
-            private ProductsService service;
+    [RoutePrefix("products")]
+    public class ProductsController : BaseController
+    {
+        private ProductsService service;
 
         public ProductsController()
-            :this(new ShishaKingdomData(new ShishaKingdomContext()))
+            : this(new ShishaKingdomData(new ShishaKingdomContext()))
         {
 
         }
 
         public ProductsController(IShishaKingdomData data) : base(data)
-            {
-                this.service = new ProductsService(data);
-            }
+        {
+            this.service = new ProductsService(data);
+        }
 
-            [Route("all")]
-            public ActionResult All()
-            {
-                var productsFromDb = this.service.GetAllProducts();
-                var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productsFromDb);
-                return this.View(products);
-            }
+        [Route("all")]
+        public ActionResult All()
+        {
+            var productsFromDb = this.service.GetAllProducts();
+            var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productsFromDb);
+            return this.View(products);
+        }
 
-            [Route("addProduct")]
-            public ActionResult AddProduct(string category)
-            {
+        [Route("addProduct")]
+        public ActionResult AddProduct(int? categoryId)
+        {
 
-                this.ViewBag.CategoryName = category;
-                return this.View();
-            }
-
-            [Route("addProduct")]
-            [HttpPost]
-            public ActionResult AddProduct(AddProductViewModel apvm)
+            var categories = this.service.GetAllCategories().Select(c => new SelectListItem()
             {
-                this.service.AddProductToCategory(apvm);
-                return this.RedirectToAction("Category", "Categories",
-                    new {id = this.service.FindCategoryByName(apvm.CategoryName).Id});
-            }
+                Text = c.Name,
+                Value = c.Id.ToString(),
+                Selected = categoryId == c.Id
 
-            [Route("remove")]
-            public ActionResult Remove(int id)
+            });
+            AddProductViewModel adpvm = new AddProductViewModel()
             {
-                var product = this.service.FindProductById(id);
-                int catId = product.Category.Id;
-                this.service.RemoveProduct(product);
-                return this.RedirectToAction("Edit", "Categories", new {id = catId});
-            }
+                Categories = categories
+            };
+            return this.View(adpvm);
+        }
 
-            [Route("edit")]
-            public ActionResult Edit(int id)
+        [Route("addProduct")]
+        [HttpPost]
+        public ActionResult AddProduct(AddProductViewModel apvm)
+        {
+            this.service.AddProductToCategory(apvm);
+            return this.RedirectToAction("Category", "Categories",
+                new { id = apvm.CategoryId });
+        }
+
+        [Route("remove")]
+        public ActionResult Remove(int id)
+        {
+            var product = this.service.FindProductById(id);
+            int catId = product.Category.Id;
+            this.service.RemoveProduct(product);
+            return this.RedirectToAction("Edit", "Categories", new { id = catId });
+        }
+
+        [Route("edit")]
+        public ActionResult Edit(int id)
+        {
+            var editProductViewModel = Mapper.Map<EditProductViewModel>(this.service.FindProductById(id));
+            var categories = this.service.GetAllCategories();
+            foreach (var category in categories)
             {
-                var editProductViewModel = Mapper.Map<EditProductViewModel>(this.service.FindProductById(id));
-                var categories = this.service.GetAllCategories();
-                foreach (var category in categories)
+                var selectListItem = new SelectListItem()
                 {
-                    var selectListItem = new SelectListItem()
-                    {
-                        Value = category.Id.ToString(),
-                        Text = category.Name,
-                        Selected = editProductViewModel.Category == category.Name
-                    };
+                    Value = category.Id.ToString(),
+                    Text = category.Name,
+                    Selected = editProductViewModel.Category == category.Name
+                };
                 editProductViewModel.Categories.Add(selectListItem);
-                }
-                return this.View(editProductViewModel);
             }
+            return this.View(editProductViewModel);
         }
     }
+}

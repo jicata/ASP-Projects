@@ -39,13 +39,18 @@
         {
 
             var product = Mapper.Map<Product>(apvm);
-            this.FindCategoryByName(apvm.CategoryName).Products.Add(product);
+            this.FindCategoryById(apvm.CategoryId).Products.Add(product);
             this.data.SaveChanges();
         }
 
         public Category FindCategoryByName(string apvmName)
         {
             return this.data.Categories.FindByPredicate(c => c.Name == apvmName);
+        }
+
+        public Category FindCategoryById(int id)
+        {
+            return this.data.Categories.GetById(id);
         }
 
         public Product FindProductById(int id)

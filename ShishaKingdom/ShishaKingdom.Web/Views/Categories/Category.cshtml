@@ -17,7 +17,7 @@
         @if (User.IsInRole("Admin"))
         {
             <div class="btn-group" style="margin-bottom: 5px">
-                @Html.ActionLink("Нов Продукт", "AddProduct", "Products", new { category = @ViewBag.CategoryName }, htmlAttributes: new { @class = "btn btn-white btn-info active" })
+                @Html.ActionLink("Нов Продукт", "AddProduct", "Products", new { categoryId = @ViewBag.CategoryId }, htmlAttributes: new { @class = "btn btn-white btn-info active" })
             </div>
         }
    

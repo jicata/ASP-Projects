@@ -43,6 +43,7 @@ namespace ShishaKingdom.Web.Controllers
         {
             var category = this.service.FindCategoryById(id);
             var categoryVm = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(category.Products.ToList());
+            this.ViewBag.CategoryId = id;
             this.ViewBag.CategoryName = category.Name;
             return this.View(categoryVm);
         }
