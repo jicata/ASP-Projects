@@ -36,71 +36,11 @@ namespace ShishaKingdom.Web.Controllers
             return this.View(products);
         }
 
-        [Route("addProduct")]
-        public ActionResult AddProduct(int? categoryId)
+        [Route("details")]
+        public ActionResult Details(int id)
         {
-
-            var categories = this.service.GetAllCategories().Select(c => new SelectListItem()
-            {
-                Text = c.Name,
-                Value = c.Id.ToString(),
-                Selected = categoryId == c.Id
-
-            });
-            AddProductViewModel adpvm = new AddProductViewModel()
-            {
-                Categories = categories
-            };
-            return this.View(adpvm);
-        }
-
-        [Route("addProduct")]
-        [HttpPost]
-        public ActionResult AddProduct(AddProductViewModel apvm)
-        {
-            this.service.AddProductToCategory(apvm);
-            return this.RedirectToAction("Category", "Categories",
-                new { id = apvm.CategoryId });
-        }
-
-        [Route("remove")]
-        public ActionResult Remove(int id)
-        {
-            var product = this.service.FindProductById(id);
-            int catId = product.Category.Id;
-            this.service.RemoveProductById(id);
-            return this.RedirectToAction("Edit", "Categories", new { area="administration",id = catId });
-        }
-
-        [Route("edit")]
-        public ActionResult Edit(int id,string returnUrl)
-        {
-            var editProductViewModel = Mapper.Map<EditProductViewModel>(this.service.FindProductById(id));
-            var categories = this.service.GetAllCategories();
-            foreach (var category in categories)
-            {
-                var selectListItem = new SelectListItem()
-                {
-                    Value = category.Id.ToString(),
-                    Text = category.Name,
-                    Selected = editProductViewModel.CategoryId == category.Id
-                };
-                editProductViewModel.Categories.Add(selectListItem);
-            }
-            this.ViewBag.ReturnUrl = returnUrl;
-            return this.View(editProductViewModel);
-        }
-
-        [Route("edit")]
-        [HttpPost]
-        public ActionResult Edit(EditProductViewModel epvm, string returnUrl)
-        {
-            if (ModelState.IsValid)
-            {
-                this.service.EditProduct(epvm);
-                return RedirectToAction("All");
-            }
-            return this.View(epvm);
+            var product = Mapper.Map<ProductViewModel>(this.service.FindProductById(id));
+            return this.View(product);
         }
     }
 }

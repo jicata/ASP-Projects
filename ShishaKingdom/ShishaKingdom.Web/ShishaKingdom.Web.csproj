@@ -222,6 +222,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\ProductsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
@@ -327,14 +328,16 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Areas\Administration\Views\Categories\All.cshtml" />
     <Content Include="Views\Navigation\_SideMenu.cshtml" />
-    <Content Include="Views\Products\AddProduct.cshtml" />
+    <Content Include="Areas\Administration\Views\Products\AddProduct.cshtml" />
     <Content Include="Views\Categories\Category.cshtml" />
     <Content Include="Areas\Administration\Views\Categories\Edit.cshtml" />
-    <Content Include="Views\Products\AllInCategory.cshtml" />
+    <Content Include="Areas\Administration\Views\Products\AllInCategory.cshtml" />
     <Content Include="Areas\Administration\Views\Categories\Add.cshtml" />
     <Content Include="Views\Products\All.cshtml" />
-    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Products\Edit.cshtml" />
     <Content Include="Views\Shared\_ProductPartial.cshtml" />
+    <Content Include="Views\Shared\_EditProductPartial.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -18,15 +18,14 @@
     {
         <div class="btn-group" style="margin-bottom: 5px">
             @Html.ActionLink("Нов продукт", "AddProduct", "Products", new { categoryId = @ViewBag.CategoryId }, htmlAttributes: new { @class = "btn btn-white btn-info active" })
-            @Html.ActionLink("Промени продукт", "All", "Products",null, htmlAttributes: new { @class = "btn btn-white btn-info active", style="margin-left:5px" })
+            @Html.ActionLink("Промени продукт", "All", "Products", new { area = "Administration", categoryId =@ViewBag.CategoryId},
+           htmlAttributes: new { @class = "btn btn-white btn-info active", style = "margin-left:5px" })
         </div>
     }
 
     <div class="col-md-12">
-      @Html.Partial("_ProductPartial",Model)
-     
+        @Html.Partial("_ProductPartial", Model)
+
 
     </div>
 </div>
-
-

@@ -1,0 +1,38 @@
+﻿@using ShishaKingdom.Web.ViewModels.Products
+@model IEnumerable<ShishaKingdom.Web.ViewModels.Products.ProductViewModel>
+@foreach (ProductViewModel pvm in Model)
+{
+    <div class="col-md-3 col-sm-6" style="padding-left: 0">
+        <span class="thumbnail">
+            <img src="@pvm.ImageUrl" alt="picture for @pvm.Description" class="img-thumbnail" style="width: 200px; height: 200px">
+            <h4>@pvm.Name</h4>
+            <p>@pvm.Description</p>
+            <hr class="line">
+            <div class="row">
+                <div class="col-md-7 col-sm-7">
+                    <p class="price">@pvm.Price BGN</p>
+                </div>
+                <div class="btn-group btn-group-sm col-md-6 col-sm-6">
+                
+                        <button type="button" class="btn btn-info dropdown-toggle btn-sm col-md-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Опции <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                @Html.ActionLink("Промени", "Edit", "Products", new
+                           {
+                               id = pvm.Id,
+                               @returnUrl = Url.Action(ViewContext.RouteData.Values["action"].ToString(),
+                                       ViewContext.RouteData.Values["controller"].ToString())
+                           }, null)
+                            </li>
+                            <li>>@Html.ActionLink("Изтрии", "Remove", "Products", new { id = pvm.Id }, null)</li>
+                        </ul>
+                    
+
+                  
+                </div>
+            </div>
+        </span>
+    </div>
+}
