@@ -155,3 +155,9 @@ nav:hover .forAnimate {
 section {
     padding-left: 15px;
 }
+
+.dropdown-menu {
+    overflow: visible;
+    z-index: 9999 !important;
+}
+

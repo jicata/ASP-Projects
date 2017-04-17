@@ -12,37 +12,20 @@
 
 
 <div class="row">
-        <h2>@ViewBag.CategoryName</h2>
+    <h2>@ViewBag.CategoryName</h2>
 
-        @if (User.IsInRole("Admin"))
-        {
-            <div class="btn-group" style="margin-bottom: 5px">
-                @Html.ActionLink("Нов Продукт", "AddProduct", "Products", new { categoryId = @ViewBag.CategoryId }, htmlAttributes: new { @class = "btn btn-white btn-info active" })
-            </div>
-        }
-   
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="btn-group" style="margin-bottom: 5px">
+            @Html.ActionLink("Нов продукт", "AddProduct", "Products", new { categoryId = @ViewBag.CategoryId }, htmlAttributes: new { @class = "btn btn-white btn-info active" })
+            @Html.ActionLink("Промени продукт", "All", "Products",null, htmlAttributes: new { @class = "btn btn-white btn-info active", style="margin-left:5px" })
+        </div>
+    }
+
     <div class="col-md-12">
+      @Html.Partial("_ProductPartial",Model)
+     
 
-        @foreach (ProductViewModel pvm in Model)
-        {
-            <div class="col-md-3 col-sm-6" style="padding-left: 0">
-                <span class="thumbnail">
-                    <img src="@pvm.ImageUrl" alt="picture for @pvm.Description" class="img-thumbnail" style="width: 200px; height: 200px">
-                    <h4>@pvm.Name</h4>
-                    <p>@pvm.Description</p>
-                    <hr class="line">
-                    <div class="row">
-                        <div class="col-md-7 col-sm-7">
-                            <p class="price">@pvm.Price BGN</p>
-                        </div>
-                        <div class="col-md-5 col-sm-5">
-                            <button class="btn btn-success right">Поръчай</button>
-                        </div>
-
-                    </div>
-                </span>
-            </div>
-        }
     </div>
 </div>
 

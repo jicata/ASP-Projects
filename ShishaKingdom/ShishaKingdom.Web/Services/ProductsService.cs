@@ -66,11 +66,14 @@
 
         public void EditProduct(EditProductViewModel epvm)
         {
-            this.RemoveProductById(epvm.Id);
+         //   this.RemoveProductById(epvm.Id);
 
-            var product = Mapper.Map<Product>(epvm);            
-            var category = this.FindCategoryById(epvm.CategoryId);
-            category.Products.Add(product);
+            var product = Mapper.Map<Product>(epvm);
+            var productFromDb = this.FindProductById(epvm.Id);
+            productFromDb = product;
+            this.data.Products.InsertOrUpdate(productFromDb);
+            //var category = this.FindCategoryById(epvm.CategoryId);
+            //category.Products.Add(product);
             this.data.SaveChanges();
         }
     }

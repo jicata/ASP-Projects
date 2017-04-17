@@ -38,8 +38,7 @@
                     .ForMember(dest => dest.Available,
                         opts => opts.MapFrom(src => src.Availability.ToString() == "Available"));
                 cfg.CreateMap<CategoryViewModel, Category>();
-                cfg.CreateMap<AddProductViewModel, Product>()
-                    .ForMember(dest => dest.AvailableSince, opts => opts.MapFrom(src => DateTime.Now));
+                cfg.CreateMap<AddProductViewModel, Product>();
                 cfg.CreateMap<Category, CategoryPreviewViewModel>();
                 cfg.CreateMap<Product, EditProductViewModel>();
                 cfg.CreateMap<EditProductViewModel, Product>();

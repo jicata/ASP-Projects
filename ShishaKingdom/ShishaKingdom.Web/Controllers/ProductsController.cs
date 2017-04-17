@@ -73,7 +73,7 @@ namespace ShishaKingdom.Web.Controllers
         }
 
         [Route("edit")]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id,string returnUrl)
         {
             var editProductViewModel = Mapper.Map<EditProductViewModel>(this.service.FindProductById(id));
             var categories = this.service.GetAllCategories();
@@ -87,17 +87,18 @@ namespace ShishaKingdom.Web.Controllers
                 };
                 editProductViewModel.Categories.Add(selectListItem);
             }
+            this.ViewBag.ReturnUrl = returnUrl;
             return this.View(editProductViewModel);
         }
 
         [Route("edit")]
         [HttpPost]
-        public ActionResult Edit(EditProductViewModel epvm)
+        public ActionResult Edit(EditProductViewModel epvm, string returnUrl)
         {
             if (ModelState.IsValid)
             {
                 this.service.EditProduct(epvm);
-                return RedirectToAction("Category", "Categories", routeValues: new {id = epvm.CategoryId});
+                return RedirectToAction("All");
             }
             return this.View(epvm);
         }

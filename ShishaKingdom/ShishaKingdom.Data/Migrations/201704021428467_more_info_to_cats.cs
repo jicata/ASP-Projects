@@ -7,6 +7,7 @@ namespace ShishaKingdom.Data.Migrations
     {
         public override void Up()
         {
+      
             AddColumn("dbo.Categories", "Description", c => c.String());
             AddColumn("dbo.Categories", "ImgUrl", c => c.String());
         }

@@ -334,6 +334,7 @@
     <Content Include="Areas\Administration\Views\Categories\Add.cshtml" />
     <Content Include="Views\Products\All.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Shared\_ProductPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

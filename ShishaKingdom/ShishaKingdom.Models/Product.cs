@@ -1,10 +1,13 @@
 ﻿namespace ShishaKingdom.Models
 {
     using System;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations.Schema;
     using Enums;
 
     public class Product
     {
+
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -13,7 +16,6 @@
 
         public decimal Price { get; set; }
 
-        public DateTime? AvailableSince { get; set; }
 
         public Availability Availability { get; set; }
 
