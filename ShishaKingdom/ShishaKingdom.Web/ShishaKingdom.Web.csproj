@@ -331,7 +331,7 @@
     <Content Include="Areas\Administration\Views\Products\AddProduct.cshtml" />
     <Content Include="Views\Categories\Category.cshtml" />
     <Content Include="Areas\Administration\Views\Categories\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\Products\AllInCategory.cshtml" />
+    <Content Include="Areas\Administration\Views\Products\All.cshtml" />
     <Content Include="Areas\Administration\Views\Categories\Add.cshtml" />
     <Content Include="Views\Products\All.cshtml" />
     <Content Include="Areas\Administration\Views\Products\Edit.cshtml" />

@@ -39,12 +39,13 @@ namespace ShishaKingdom.Web.Controllers
 
         [Route("category")]
         [AllowAnonymous]
-        public ActionResult Category(int id)
+        public ActionResult Category(int id,string search=null)
         {
             var category = this.service.FindCategoryById(id);
             var categoryVm = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(category.Products.ToList());
             this.ViewBag.CategoryId = id;
             this.ViewBag.CategoryName = category.Name;
+            this.ViewBag.Search = search;
             return this.View(categoryVm);
         }
 

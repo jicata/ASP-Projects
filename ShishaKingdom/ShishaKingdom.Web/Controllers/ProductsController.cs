@@ -12,7 +12,8 @@ namespace ShishaKingdom.Web.Controllers
     using Services;
     using ViewModels.Products;
 
-    [RoutePrefix("products")]
+
+    [RoutePrefix("Products")]
     public class ProductsController : BaseController
     {
         private ProductsService service;
@@ -27,20 +28,36 @@ namespace ShishaKingdom.Web.Controllers
         {
             this.service = new ProductsService(data);
         }
-
-        [Route("all")]
-        public ActionResult All()
+        [Route("Products")]
+        public ActionResult Products(int? categoryId, string search)
         {
-            var productsFromDb = this.service.GetAllProducts();
-            var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productsFromDb);
-            return this.View(products);
+            IEnumerable<Product> products = categoryId != null
+                ? this.service.GetAllProducts(categoryId.Value)
+                : this.service.GetAllProducts();
+           
+            if (search != null)
+            {
+                products = products.Where(p => p.Name.Contains(search));
+            }
+            var productVierwModels = Mapper.Map<IEnumerable<ProductViewModel>>(products);
+            return this.PartialView("_ProductPartial",productVierwModels);
         }
-
-        [Route("details")]
+        [Route("Details")]
         public ActionResult Details(int id)
         {
             var product = Mapper.Map<ProductViewModel>(this.service.FindProductById(id));
             return this.View(product);
+        }
+        [Route("All")]
+        public ActionResult All(int? categoryId,string search= null)
+        {
+            var productsFromDb = categoryId == null
+                ? this.service.GetAllProducts()
+                : this.service.GetAllProducts().Where(p => p.Category.Id == categoryId.Value);
+
+            this.ViewBag.Search = search;
+            var products = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(productsFromDb);
+            return this.View(products);
         }
     }
 }

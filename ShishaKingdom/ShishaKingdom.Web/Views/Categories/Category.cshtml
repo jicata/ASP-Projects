@@ -2,7 +2,7 @@
 @model IEnumerable<ShishaKingdom.Web.ViewModels.Products.ProductViewModel>
 
 @{
-    ViewBag.Title = "All";
+    ViewBag.Title = "Категория" + @ViewBag.CategoryName;
 }
 
 
@@ -13,19 +13,33 @@
 
 <div class="row">
     <h2>@ViewBag.CategoryName</h2>
-
-    @if (User.IsInRole("Admin"))
-    {
-        <div class="btn-group" style="margin-bottom: 5px">
-            @Html.ActionLink("Нов продукт", "AddProduct", "Products", new { categoryId = @ViewBag.CategoryId }, htmlAttributes: new { @class = "btn btn-white btn-info active" })
-            @Html.ActionLink("Промени продукт", "All", "Products", new { area = "Administration", categoryId =@ViewBag.CategoryId},
-           htmlAttributes: new { @class = "btn btn-white btn-info active", style = "margin-left:5px" })
+    <div class="btn-group" style="margin-bottom: 5px">
+        <div class="col-lg-2">
+            <form method="get" action="category">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Име на продукт..." name="search" id="search">
+                    <input type="hidden" value="@ViewBag.CategoryId" name="id" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Търси</button>
+                    </span>
+                </div>
+            </form>
         </div>
-    }
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="col-lg-2">
+                <form method="get" action="/administration/products/addproduct">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-white btn-info active" type="submit">Нов Продукт</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        }
 
+    </div>
     <div class="col-md-12">
-        @Html.Partial("_ProductPartial", Model)
-
-
+        @Html.Action("Products", "Products", new { categoryId = @ViewBag.CategoryId, search = ViewBag.Search })
     </div>
 </div>

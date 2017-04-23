@@ -18,6 +18,11 @@
             return this.data.Products.GetAll();
         }
 
+        public IEnumerable<Product> GetAllProducts(int categoryId)
+        {
+            return this.data.Products.Find(p => p.Category.Id == categoryId);
+        }
+
         public void AddProduct(Product product)
         {
             this.data.Products.InsertOrUpdate(product);

@@ -5,19 +5,40 @@
     ViewBag.Title = "Продукти";
 }
 
-<link href="@Url.Content("~/Content/productsStyle.css")" rel="stylesheet" type="text/css" />
-<div class="row">
-    <h2>Продукти</h2>
+@*<link href="@Url.Content("~/Content/productsStyle.css")" rel="stylesheet" type="text/css" />*@
 
-    @if (User.IsInRole("Admin"))
-    {
-        <div class="btn-group" style="margin-bottom: 5px">
-            @Html.ActionLink("Нов Продукт", "AddProduct", "Products",null,htmlAttributes: new { @class = "btn btn-white btn-info active" })
+
+<h2>Продукти</h2>
+
+<div class="row">
+    <div class="btn-group" style="margin-bottom: 5px">
+        <div class="col-lg-2">
+            <form method="get" action="/products/all">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Име на продукт..." name="search" id="search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Търси</button>
+                    </span>
+                </div>
+            </form>
         </div>
-    }
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="col-lg-2">
+                <form method="get" action="/administration/products/addproduct">
+                    <div class="input-group">                   
+                        <span class="input-group-btn" >
+                            <button class="btn btn-white btn-info active" type="submit">Нов Продукт</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        }
+
+
+    </div>
 
     <div class="col-md-12">
-
-       @Html.Partial("_ProductPartial", Model);
+        @Html.Action("Products", "Products", new { area = "" , search = ViewBag.Search })
     </div>
 </div>
