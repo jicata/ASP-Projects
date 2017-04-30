@@ -1,0 +1,42 @@
+﻿@using ShishaKingdom.Web.ViewModels.Products
+@model IEnumerable<ShishaKingdom.Web.ViewModels.Products.ProductViewModel>
+
+@{
+    ViewBag.Title = "Категория" + @ViewBag.CategoryName;
+}
+
+
+<link href="@Url.Content("~/Content/productsStyle.css")" rel="stylesheet" type="text/css" />
+
+    <h2>Продукти</h2>
+
+
+
+<p>
+    <div class="btn-group" style="margin-bottom: 5px">
+        @Html.ActionLink("Нов продукт", "AddProduct", "Products", new { categoryId = @ViewBag.CategoryId }, htmlAttributes: new { @class = "btn btn-white btn-info active" })
+       
+    </div>
+    <div class="col-lg-2">
+        <form method="get" action="category">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Име на продукт..." name="search" id="search">
+                <input type="hidden" value="@ViewBag.CategoryId" name="id" />
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Go!</button>
+                </span>
+            </div>
+        </form>
+    </div>
+  
+
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+            @Html.Partial("_ProductPartial",Model)
+      
+    </div>
+</div>
+
+

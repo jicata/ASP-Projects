@@ -42,6 +42,8 @@
                 cfg.CreateMap<Category, CategoryPreviewViewModel>();
                 cfg.CreateMap<Product, EditProductViewModel>();
                 cfg.CreateMap<EditProductViewModel, Product>();
+                cfg.CreateMap<Product, RemoveProductViewModel>();
+
             });
         }
     }

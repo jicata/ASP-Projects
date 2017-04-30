@@ -27,15 +27,7 @@
         </div>
         @if (User.IsInRole("Admin"))
         {
-            <div class="col-lg-2">
-                <form method="get" action="/administration/products/addproduct">
-                    <div class="input-group">
-                        <span class="input-group-btn">
-                            <button class="btn btn-white btn-info active" type="submit">Нов Продукт</button>
-                        </span>
-                    </div>
-                </form>
-            </div>
+            <a href="/administration/products/addproduct" class="btn btn-success" role="button">Нов Продукт</a>
         }
 
     </div>
