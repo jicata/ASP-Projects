@@ -97,7 +97,7 @@ namespace ShishaKingdom.Web.Areas.Administration.Controllers
             if (ModelState.IsValid)
             {
                 this.service.EditProduct(epvm);
-                return RedirectToAction("All");
+                return RedirectToAction("All","Products", new {area=""});
             }
             return this.View(epvm);
         }

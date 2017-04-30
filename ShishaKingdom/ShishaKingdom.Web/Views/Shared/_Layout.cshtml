@@ -27,7 +27,7 @@
                 <li>@Html.ActionLink("Начало", "Index", "Home", new { area = "" }, null)</li>
                 <li>@Html.ActionLink("За нас", "About", "Home", new { area = "" }, null)</li>
                 <li>@Html.ActionLink("Контакти", "Contact", "Home", new { area = "" }, null)</li>               
-                <li>@Html.ActionLink("Продукти","All","Products", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("Продукти","All","Products", new { area = "" }, null)</li>               
                 @if (User.IsInRole("Admin"))
                 {
                     <li class="dropdown">
@@ -37,6 +37,7 @@
                         </ul>
                     </li>                   
                 }
+                <li>@Html.ActionLink("Kur","Index","Wishlist", new {area=""},new {@class="glyphicon glyphicon-shopping-cart"})</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

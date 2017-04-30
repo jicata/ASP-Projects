@@ -27,10 +27,15 @@ nav.sidebar, .main {
 /* Add gap to nav and right windows.*/
 .main {
     padding: 10px 10px 0 10px;
-            margin-bottom:45px
+    margin-bottom: 45px;
 }
 
 /* .....NavBar: Icon only with coloring/layout.....*/
+
+
+#newProduct {
+    margin-left: 15px;
+}
 
 /*small/medium side display*/
 @media (min-width: 768px) {
@@ -120,6 +125,8 @@ nav.sidebar, .main {
     .forAnimate {
         opacity: 0;
     }
+
+
 }
 
 /* .....NavBar: Fully showing nav bar..... */
@@ -162,6 +169,9 @@ section {
 }
 
 h2 {
-    padding-left: 15px 
+    padding-left: 15px;
 }
-.glimpse-nowrap { z-index: 9999 !important; }
+
+.glimpse-nowrap {
+    z-index: 9999 !important;
+}
