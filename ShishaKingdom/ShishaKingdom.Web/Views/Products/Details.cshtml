@@ -5,8 +5,8 @@
 
 <link rel="stylesheet" href="../../Content/productDetailsStyle.css" />
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
 
 
@@ -15,15 +15,16 @@
 <div class="container">
     @if (User.IsInRole("Admin"))
     {
-        <div class="col-lg-2" style="margin-left:0px">
-            <form method="get" action="/administration/products/addproduct">
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-white btn-info active" type="submit">Нов Продукт</button>
-                    </span>
-                </div>
-            </form>
-        </div>
+        @*<form method="get" action="/administration/products/addproduct">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-white btn-info active" type="submit">Нов Продукт</button>
+                </span>
+            </div>
+        </form>*@
+        <a href="/administration/products/edit?id=@Model.Id" class="btn btn-success" role="button">Промени</a>
+        <a href="/administration/products/remove/@Model.Id" class="btn btn-danger" role="button">Изтрий</a>
+
     }
     <div class="card">
         <div class="container-fliud">
@@ -31,7 +32,8 @@
                 <div class="preview col-md-6">
 
                     <div class="preview-pic tab-content">
-                        <div class="tab-pane active" id="pic-1"><img src="@Model.ImageUrl" width="300" height="300"/>
+                        <div class="tab-pane active" id="pic-1">
+                            <img src="@Model.ImageUrl" width="300" height="300" />
                         </div>
 
                     </div>
@@ -51,18 +53,21 @@
                     </div>
                     <p class="product-description">@Model.Description</p>
                     <h4 class="price">Цена <span>@Model.Price BGN</span></h4>
-                    <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong>
+                    <p class="vote">
+                        <strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong>
                     </p>
-                    <h4 class="price">Наличност <span>
-                        @if (@Model.Available)
-                        {
-                            @:Да
+                    <h4 class="price">
+                        Наличност <span>
+                            @if (@Model.Available)
+                            {
+                                @:Да
                         }
-                        else
-                        {
-                            @:Не
+                            else
+                            {
+                                @:Не
                         }
-                    </span></h4>
+                        </span>
+                    </h4>
 
                     <div class="action">
                         <button class="add-to-cart btn btn-default" type="button">Поръчай</button>

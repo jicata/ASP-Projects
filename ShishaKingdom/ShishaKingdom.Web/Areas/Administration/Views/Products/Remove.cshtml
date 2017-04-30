@@ -1,0 +1,25 @@
+﻿@model ShishaKingdom.Web.ViewModels.Products.RemoveProductViewModel
+
+<h3>Потвърди изтриване на продукт</h3>
+<div>
+    <hr />
+    <div>
+        <h2>@Html.DisplayFor(model => model.Name)</h2>
+
+        <img src="@Model.ImageUrl" />
+    </div>
+    
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <form method="post">
+            <div class="form-actions no-color">
+                <input type="submit" value="Изтрий" class="btn btn-info" /> |
+                @Html.ActionLink("Обратно", "Details", new { id = @Model.Id, area = "" }, new { @class = "btn btn-danger" })
+            </div>
+        </form>
+        
+    }
+</div>
