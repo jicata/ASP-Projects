@@ -1,0 +1,31 @@
+﻿@model  ShishaKingdom.Web.ViewModels.Products.ProductViewModel
+
+@{
+    ViewBag.Title = "AddToWishList";
+}
+<link href="@Url.Content("~/Content/productsStyle.css")" rel="stylesheet" type="text/css" />
+<h2>Добави към кошницата</h2>
+
+<div class="col-md-3 col-sm-6" style="padding-left: 0">
+    <span class="thumbnail">
+        <a href="/products/details?id=@Model.Id">
+            <img src="@Model.ImageUrl" alt="picture for @Model.Description" class="img-thumbnail" style="width: 200px; height: 200px">
+        </a>
+        <h4>@Model.Name</h4>
+        <p>@Model.Description</p>
+        <hr class="line">
+        <div class="row">
+            <div class="col-md-7 col-sm-7">
+                <p class="price">@Model.Price BGN</p>
+            </div>
+            <div class="btn-group btn-group-sm col-md-6 col-sm-6">
+                @*<button type="button" class="btn btn-success right col-md-7">Поръчай</button>*@
+                @Html.ActionLink("Добави", "Add", "Wishlist", new { id = @Model.Id, area = "", returnUrl = Request.Url.ToString() }, new { @class = "btn btn-success right col-md-7", type = "button" })
+            </div>
+        </div>
+    </span>
+    @Html.ActionLink("Обратно", "RedirectToLocal",new {returnUrl = this.ViewBag.ReturnUrl})
+</div>
+
+
+

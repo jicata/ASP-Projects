@@ -13,5 +13,10 @@
         {
            return this.data.Context.Users.Find(userId);
         }
+
+        public Product GetProductById(int id)
+        {
+            return this.data.Products.GetById(id);
+        }
     }
 }

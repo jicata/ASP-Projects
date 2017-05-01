@@ -3,23 +3,24 @@
 @foreach (ProductViewModel pvm in Model)
 {
 
-    <div class="col-md-3 col-sm-6" style="padding-left: 0">
-        <span class="thumbnail">
-            <a href="/products/details?id=@pvm.Id">
-                <img src="@pvm.ImageUrl" alt="picture for @pvm.Description" class="img-thumbnail" style="width: 200px; height: 200px">
-            </a>
-            <h4>@pvm.Name</h4>
-            <p>@pvm.Description</p>
-            <hr class="line">
-            <div class="row">
-                <div class="col-md-7 col-sm-7">
-                    <p class="price">@pvm.Price BGN</p>
+        <div class="col-md-3 col-sm-6" style="padding-left: 0">
+            <span class="thumbnail">
+                <a href="/products/details?id=@pvm.Id">
+                    <img src="@pvm.ImageUrl" alt="picture for @pvm.Description" class="img-thumbnail" style="width: 200px; height: 200px">
+                </a>
+                <h4>@pvm.Name</h4>
+                <p>@pvm.Description</p>
+                <hr class="line">
+                <div class="row">
+                    <div class="col-md-7 col-sm-7">
+                        <p class="price">@pvm.Price BGN</p>
+                    </div>
+                    <div class="btn-group btn-group-sm col-md-6 col-sm-6">
+                        @*<button type="button" class="btn btn-success right col-md-7">Поръчай</button>*@
+                        @Html.ActionLink("Поръчай","Add","Wishlist",new {id=@pvm.Id,area="", returnUrl = Request.Url.ToString()}, new { @class = "btn btn-success right col-md-7", type="button"})
+                    </div>
                 </div>
-                <div class="btn-group btn-group-sm col-md-6 col-sm-6">
-                    <button type="button" class="btn btn-success right col-md-7">Поръчай</button>
-                </div>
-            </div>
-        </span>
-    </div>
+            </span>
+        </div>
 
 }

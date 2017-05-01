@@ -7,6 +7,7 @@ namespace ShishaKingdom.Web.Controllers
     using Data.Contracts;
     using Microsoft.AspNet.Identity;
     using Services;
+    using ViewModels.Products;
     using ViewModels.WishlistViewModels;
 
     [Authorize]
@@ -27,6 +28,23 @@ namespace ShishaKingdom.Web.Controllers
             var wishlistViewModel = Mapper.Map<WishlistViewModel>(user.WishList);
             return View("Wishlist",wishlistViewModel);
         }
+
+        [ActionName("Add")]
+        public ActionResult AddConfirm(int id, string returnUrl)
+        {
+            var product = Mapper.Map<ProductViewModel>(this.wishlistService.GetProductById(id));
+            this.ViewBag.ReturnUrl = returnUrl;
+            return this.View(product);
+        }
+
+        [HttpPost]
+        public ActionResult Add(int id, string returnUrl)
+        {
+            var product = Mapper.Map<ProductViewModel>(this.wishlistService.GetProductById(id));
+            this.ViewBag.ReturnUrl = returnUrl;
+            return this.View(product);
+        }
+
         public ActionResult RedirectToLocal(string returnUrl)
         {
             if (this.Url.IsLocalUrl(returnUrl))
