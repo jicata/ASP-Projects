@@ -280,6 +280,7 @@
     <Compile Include="ViewModels\Products\EditProductViewModel.cs" />
     <Compile Include="ViewModels\Products\ProductViewModel.cs" />
     <Compile Include="ViewModels\Products\RemoveProductViewModel.cs" />
+    <Compile Include="ViewModels\WishlistViewModels\WishlistViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

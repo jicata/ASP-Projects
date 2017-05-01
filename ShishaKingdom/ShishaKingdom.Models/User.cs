@@ -1,5 +1,6 @@
 namespace ShishaKingdom.Models
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Security.Claims;
     using System.Threading.Tasks;

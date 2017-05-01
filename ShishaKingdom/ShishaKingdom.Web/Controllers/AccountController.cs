@@ -153,7 +153,7 @@ namespace ShishaKingdom.Web.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.Email, Email = model.Email, WishList = new WishList()};
                 var result = await this.UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -451,7 +451,7 @@ namespace ShishaKingdom.Web.Controllers
             {
                 return this.Redirect(returnUrl);
             }
-            return this.RedirectToAction("Index", "Home");
+            return this.RedirectToAction("All", "Products", new {area=""});
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

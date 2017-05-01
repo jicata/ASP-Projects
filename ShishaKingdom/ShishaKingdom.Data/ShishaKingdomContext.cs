@@ -23,6 +23,7 @@
         public IDbSet<Product> Products { get; set; }
         public IDbSet<Category> Categories { get; set; }
         public IDbSet<WishList> WishLists { get; set; }
+
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();

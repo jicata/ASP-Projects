@@ -10,6 +10,7 @@
     using Models.Enums;
     using ViewModels.Categories;
     using ViewModels.Products;
+    using ViewModels.WishlistViewModels;
 
     public class MvcApplication : System.Web.HttpApplication
     {
@@ -43,7 +44,7 @@
                 cfg.CreateMap<Product, EditProductViewModel>();
                 cfg.CreateMap<EditProductViewModel, Product>();
                 cfg.CreateMap<Product, RemoveProductViewModel>();
-
+                cfg.CreateMap<WishList, WishlistViewModel>();
             });
         }
     }

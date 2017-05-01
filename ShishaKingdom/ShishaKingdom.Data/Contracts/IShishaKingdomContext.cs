@@ -13,6 +13,8 @@
 
         IDbSet<WishList> WishLists { get; }
 
+        IDbSet<User> Users { get; }
+
         int SaveChanges();
         IDbSet<T> Set<T>()
            where T : class;
