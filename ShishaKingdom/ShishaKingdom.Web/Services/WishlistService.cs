@@ -18,5 +18,18 @@
         {
             return this.data.Products.GetById(id);
         }
+
+        public void AddProductToWishList(User user, Product product)
+        {
+            user.WishList.Products.Add(product);
+            this.data.SaveChanges();
+        }
+
+        public void CheckoutWishList(string id)
+        {
+            var wishlist = this.data.Context.WishLists.Find(id);
+            wishlist.IsCheckedOut = true;
+            this.data.SaveChanges();
+        }
     }
 }

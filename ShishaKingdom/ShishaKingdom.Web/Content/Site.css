@@ -32,10 +32,12 @@ nav.sidebar, .main {
 
 /* .....NavBar: Icon only with coloring/layout.....*/
 
-
-#newProduct {
+@media only screen and (max-device-width: 532px) {
+    #newProductBtn {
     margin-left: 15px;
 }
+
+	}
 
 /*small/medium side display*/
 @media (min-width: 768px) {

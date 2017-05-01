@@ -16,6 +16,8 @@
         public virtual User Customer { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
+
+        public bool IsCheckedOut { get; set; }
         
     }
 }

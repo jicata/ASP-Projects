@@ -18,10 +18,16 @@
             <div class="col-md-7 col-sm-7">
                 <p class="price">@Model.Price BGN</p>
             </div>
-            <div class="btn-group btn-group-sm col-md-6 col-sm-6">
-                @*<button type="button" class="btn btn-success right col-md-7">Поръчай</button>*@
-                @Html.ActionLink("Добави", "Add", "Wishlist", new { id = @Model.Id, area = "", returnUrl = Request.Url.ToString() }, new { @class = "btn btn-success right col-md-7", type = "button" })
-            </div>
+            <form action="/wishlist/add" method="post">
+                <div class="btn-group btn-group-sm col-md-6 col-sm-6">
+
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+                    @*@Html.ActionLink("Добави", "Add", "Wishlist", new { id = @Model.Id, area = "", returnUrl = Request.Url.ToString() }, new { @class = "btn btn-success right col-md-7", type = "submit" })*@
+                    <input type="submit" value="Добави" class="btn btn-success right col-md-7"/>
+
+                </div>
+            </form>
         </div>
     </span>
     @Html.ActionLink("Обратно", "RedirectToLocal",new {returnUrl = this.ViewBag.ReturnUrl})
