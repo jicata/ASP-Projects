@@ -16,6 +16,7 @@
         public IRepository<Product> Products => new Repository<Product>(this.context);
         public IRepository<Category> Categories => new Repository<Category>(this.context);
         public IRepository<WishList> WishLists => new Repository<WishList>(this.context);
+        public IRepository<Order> Orders =>new Repository<Order>(this.context);
         public IShishaKingdomContext Context => this.context;
         public int SaveChanges()
         {

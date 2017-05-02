@@ -15,6 +15,8 @@
 
         IDbSet<User> Users { get; }
 
+        IDbSet<Order> Orders { get; }
+
         int SaveChanges();
         IDbSet<T> Set<T>()
            where T : class;

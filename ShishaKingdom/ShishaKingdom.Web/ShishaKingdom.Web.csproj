@@ -358,6 +358,8 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Wishlist\Wishlist.cshtml" />
     <Content Include="Views\Wishlist\Add.cshtml" />
+    <Content Include="Views\Errors\PageNotFound.cshtml" />
+    <Content Include="Views\Wishlist\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

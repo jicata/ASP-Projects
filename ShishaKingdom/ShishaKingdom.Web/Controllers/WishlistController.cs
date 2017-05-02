@@ -49,7 +49,7 @@ namespace ShishaKingdom.Web.Controllers
                 if (!string.IsNullOrEmpty(userId))
                 {
                     var user = this.wishlistService.GetUserById(userId);
-                    //this.wishlistService.AddProductToWishList(user, product);
+                    this.wishlistService.AddProductToWishList(user, product);
                     string decodedUrl = WebUtility.UrlDecode(returnUrl);
                     if (this.Request.IsLocal)
                     {
@@ -70,5 +70,20 @@ namespace ShishaKingdom.Web.Controllers
             return this.RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
+        public ActionResult Checkout(string id)
+        {
+
+            this.wishlistService.CheckoutWishList(id);
+            return this.View();
+        }
+
+        [HttpGet]
+        public ActionResult Remove(int id)
+        {
+            var wishlist = this.wishlistService.GetUserById(User.Identity.GetUserId()).WishList;
+            this.wishlistService.RemoveProductFromWishList(wishlist, id);
+            return this.RedirectToAction("Index");
+        }
     }
 }

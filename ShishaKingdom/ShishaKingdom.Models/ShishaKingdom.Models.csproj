@@ -63,6 +63,8 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="Enums\Availability.cs" />
+    <Compile Include="Enums\Status.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

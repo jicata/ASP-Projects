@@ -24,6 +24,8 @@
         public IDbSet<Category> Categories { get; set; }
         public IDbSet<WishList> WishLists { get; set; }
 
+        public IDbSet<Order> Orders { get; }
+
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();
@@ -34,5 +36,7 @@
             modelBuilder.Entity<Category>().HasOptional(c => c.SubCategories).WithMany();
             base.OnModelCreating(modelBuilder);
         }
+
+      
     }
 }

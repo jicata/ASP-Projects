@@ -92,6 +92,10 @@
     <Compile Include="Migrations\201705011710198_wishlist_checkout.Designer.cs">
       <DependentUpon>201705011710198_wishlist_checkout.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705021653175_added_orders.cs" />
+    <Compile Include="Migrations\201705021653175_added_orders.Designer.cs">
+      <DependentUpon>201705021653175_added_orders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ShishaKingdomContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705011710198_wishlist_checkout.resx">
       <DependentUpon>201705011710198_wishlist_checkout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705021653175_added_orders.resx">
+      <DependentUpon>201705021653175_added_orders.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
